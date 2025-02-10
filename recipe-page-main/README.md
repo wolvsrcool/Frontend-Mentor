@@ -4,10 +4,10 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 
 ### Screenshots
 
-![Desktop design](./screenshots/desktop.png?raw=true)
-![Mobile design](./screenshots/mobile.png?raw=true)
+![](./screenshots/desktop.png?raw=true)
+![](./screenshots/mobile.png?raw=true)
 
 ### Links
 
-- Solution URL: [Link](https://github.com/wolvsrcool/Frontend-Mentor/blob/master/recipe-page-main)
-- Live Site URL: [Link](https://wolvsrcool.github.io/Frontend-Mentor/recipe-page-main/index.html)
+[- Solution URL](https://github.com/wolvsrcool/Frontend-Mentor/blob/master/recipe-page-main)
+[- Live Site URL](https://wolvsrcool.github.io/Frontend-Mentor/recipe-page-main/index.html)

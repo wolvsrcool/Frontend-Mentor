@@ -2,7 +2,7 @@
 
 This is a solution to the [Social links profile challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/social-links-profile-UG32l9m6dQ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-### Screenshot
+### Screenshots
 
 ![](./screenshots/desktop.png)
 ![](./screenshots/active-state.png)
@@ -10,5 +10,5 @@ This is a solution to the [Social links profile challenge on Frontend Mentor](ht
 
 ### Links
 
-- Solution URL: [Link](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/social-links-profile-main)
-- Live Site URL: [Link](https://wolvsrcool.github.io/Frontend-Mentor/social-links-profile-main/index.html)
+[- Solution URL](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/social-links-profile-main)
+[- Live Site URL](https://wolvsrcool.github.io/Frontend-Mentor/social-links-profile-main/index.html)
