@@ -10,5 +10,5 @@ This is a solution to the [Results summary component challenge on Frontend Mento
 
 ### Links
 
-[- Solution URL:](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/results-summary-component-main)
+[- Solution URL](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/results-summary-component-main) <br />
 [- Live Site URL](https://wolvsrcool.github.io/Frontend-Mentor/results-summary-component-main/index.html)

@@ -9,5 +9,5 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 
 ### Links
 
-[- Solution URL](https://github.com/wolvsrcool/Frontend-Mentor/blob/master/recipe-page-main)
+[- Solution URL](https://github.com/wolvsrcool/Frontend-Mentor/blob/master/recipe-page-main)<br />
 [- Live Site URL](https://wolvsrcool.github.io/Frontend-Mentor/recipe-page-main/index.html)
