@@ -24,6 +24,10 @@
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        z-index: -1;
         font-size: 11px;
         text-align: center;
       }
@@ -52,14 +56,20 @@
       }
 
       article {
-        background-color: hsl(0, 0%, 12%);
-        width: 32.5rem;
-        margin: 15rem auto;
-        border-radius: 12px;
+        margin: 0 auto;
+        max-width: 32.5rem;
+        height: 100vh;
+        position: relative;
       }
 
       .container {
+        border-radius: 12px;
         padding: 3.2rem;
+        background-color: hsl(0, 0%, 12%);
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
       }
 
       .profile {
@@ -119,17 +129,6 @@
       li a:focus {
         background-color: hsl(75, 94%, 57%);
         color: hsl(0, 0%, 8%);
-      }
-
-      @media (max-width: 50em) {
-        article {
-          margin: 5rem auto;
-          width: 30rem;
-        }
-
-        .container {
-          padding: 2.4rem;
-        }
       }
     </style>
   </head>

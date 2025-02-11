@@ -17,9 +17,13 @@
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
+        position: fixed;
+        bottom: 0;
         font-size: 11px;
         text-align: center;
         color: hsl(0, 0%, 0%);
+        width: 100vw;
+        z-index: -1;
       }
       .attribution a {
         color: hsl(228, 45%, 44%);
@@ -51,16 +55,21 @@
       }
 
       section {
+        height: 100vh;
         max-width: 64rem;
-        margin: 23vh auto;
-        background-color: hsl(0, 0%, 100%);
-        border-radius: 15px;
-        box-shadow: 0 0 4.8rem rgba(0, 0, 0, 0.075);
+        margin: 0 auto;
+        position: relative;
       }
 
       .grid-container {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         display: grid;
         grid-template-columns: 1fr 1fr;
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 15px;
+        box-shadow: 0 0 4.8rem rgba(0, 0, 0, 0.075);
       }
 
       .score,
@@ -242,15 +251,13 @@
 
       @media (max-width: 40em) {
         html {
-          font-size: 50%;
-        }
-
-        section {
-          margin: 0 auto;
+          font-size: 43.375%;
         }
 
         .grid-container {
           grid-template-columns: 1fr;
+          transform: translateY(0);
+          top: 0;
         }
 
         .score {
@@ -291,6 +298,7 @@
         .statistics {
           padding: 4.8rem;
           padding-top: 3.2rem;
+          border-radius: 0;
         }
 
         .statistics p {
