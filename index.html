@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       * {
         margin: 0;
@@ -17,7 +24,7 @@
       }
 
       body {
-        background-color: #edf2ff;
+        background-color: #d0ebff;
       }
 
       .grid-container {
@@ -25,17 +32,18 @@
         margin: 4rem;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 4rem;
+        gap: 6rem;
       }
 
       img {
         width: 100%;
-        transform: scale(1.01);
         transition: 0.3s;
+        border-radius: 16px;
+        transform: scale(1.01);
       }
 
       .challenge:hover {
-        transform: translateY(-2rem);
+        transform: scale(1.05) translateY(-2rem);
       }
 
       .challenge:hover img {
@@ -46,8 +54,39 @@
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 0 6.4rem rgba(0, 0, 0, 0.05);
-        border: 2px solid #bac8ff;
         transition: 0.3s;
+      }
+
+      .html-tag {
+        position: relative;
+      }
+
+      .html-tag::after {
+        position: absolute;
+        width: fit-content;
+        content: "html & css";
+        padding: 0.8rem 1.6rem;
+        padding-right: 2.4rem;
+        background-color: #d0bfff;
+        background-image: linear-gradient(135deg, #7950f2, #228be6);
+        color: #edf2ff;
+        border-top-right-radius: 500px;
+        text-transform: uppercase;
+        font-family: "Inter", sans-serif;
+        letter-spacing: 1px;
+        font-size: 1.2rem;
+        bottom: -10rem;
+        left: -0.8rem;
+        box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.05);
+        transition: all 0.2s;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .html-tag:hover::after {
+        opacity: 1;
+        transform: translateX(0);
+        bottom: -0.2rem;
       }
 
       @media (max-width: 100em) {
@@ -72,45 +111,54 @@
   <body>
     <main>
       <div class="grid-container">
-        <div class="challenge">
+        <div class="challenge html-tag">
           <p>
             <a href="recipe-page-main/index.html"
               ><img src="recipe-page-main/preview.jpg" alt=""
             /></a>
           </p>
         </div>
-        <div class="challenge" href>
+        <div class="challenge html-tag">
           <p>
             <a href="social-links-profile-main/index.html"
               ><img src="social-links-profile-main/preview.jpg" alt=""
             /></a>
           </p>
         </div>
-        <div class="challenge" href>
+        <div class="challenge html-tag">
           <p>
             <a href="results-summary-component-main/index.html"
               ><img src="results-summary-component-main/preview.jpg" alt=""
             /></a>
           </p>
         </div>
-        <div class="challenge" href>
+        <div class="challenge html-tag">
           <p>
             <a href="testimonials-grid-section-main/index.html"
               ><img src="testimonials-grid-section-main/preview.jpg" alt=""
             /></a>
           </p>
         </div>
-        <div class="challenge" href>
+        <div class="challenge html-tag">
           <p>
             <a href="bento-grid-main/index.html"
               ><img src="bento-grid-main/preview.jpg" alt=""
             /></a>
           </p>
         </div>
-        <div class="challenge" href>
+        <div class="challenge html-tag">
           <p>
             <a href="fylo-data-storage-component-master/index.html"
               ><img src="fylo-data-storage-component-master/preview.jpg" alt=""
+            /></a>
+          </p>
+        </div>
+        <div class="challenge html-tag">
+          <p>
+            <a href="fylo-landing-page-with-two-column-layout-master/index.html"
+              ><img
+                src="fylo-landing-page-with-two-column-layout-master/preview.jpg"
+                alt=""
             /></a>
           </p>
         </div>
