@@ -39,7 +39,7 @@
         width: 100%;
         transition: 0.3s;
         border-radius: 16px;
-        transform: scale(1.01);
+        transform: scale(1.05);
       }
 
       .challenge:hover {
@@ -47,7 +47,7 @@
       }
 
       .challenge:hover img {
-        transform: scale(1.05);
+        transform: scale(1.1);
       }
 
       .challenge {
@@ -68,19 +68,65 @@
         padding: 0.6rem 1.2rem;
         padding-right: 2.4rem;
         background-color: #d0bfff;
-        background-image: linear-gradient(135deg, #7950f2, #228be6);
+        /* background-image: linear-gradient(135deg, #7950f2, #228be6); */
+        background-image: linear-gradient(135deg, #6abecd, #3e54a3);
         color: #edf2ff;
         border-bottom-right-radius: 16px;
         text-transform: uppercase;
         font-family: "Inter", sans-serif;
         letter-spacing: 1px;
         font-size: 1.2rem;
-        top: 0rem;
-        left: 0rem;
+        top: 0;
+        left: 0;
         box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.05);
         transition: all 0.2s;
         opacity: 1;
         pointer-events: none;
+      }
+
+      .newbie {
+        position: relative;
+      }
+
+      .newbie::after {
+        content: "newbie";
+        color: #6abecd;
+        background-image: linear-gradient(135deg, #5598a4, #88cbd7);
+      }
+
+      .junior {
+        position: relative;
+      }
+
+      .junior::after {
+        content: "junior";
+        color: #aad742;
+        background-image: linear-gradient(135deg, #88ac35, #bbdf68);
+      }
+
+      .intermediate {
+        position: relative;
+      }
+
+      .intermediate::after {
+        content: "intermediate";
+        color: #f1b604;
+        background-image: linear-gradient(135deg, #c19203, #f4c536);
+      }
+
+      .newbie::after,
+      .junior::after,
+      .intermediate::after {
+        position: absolute;
+        color: #fff;
+        font-size: 1.2rem;
+        bottom: 0;
+        right: 0;
+        padding: 0.6rem 1.2rem;
+        border-top-left-radius: 16px;
+        text-transform: uppercase;
+        font-family: sans-serif;
+        letter-spacing: 1px;
       }
 
       @media (max-width: 100em) {
@@ -106,71 +152,93 @@
     <main>
       <div class="grid-container">
         <div class="challenge html-tag">
-          <p>
-            <a href="recipe-page-main/index.html"
-              ><img src="recipe-page-main/preview.jpg" alt=""
-            /></a>
-          </p>
+          <div class="newbie">
+            <p>
+              <a href="recipe-page-main/index.html"
+                ><img src="recipe-page-main/preview.jpg" alt=""
+              /></a>
+            </p>
+          </div>
         </div>
         <div class="challenge html-tag">
-          <p>
-            <a href="social-links-profile-main/index.html"
-              ><img src="social-links-profile-main/preview.jpg" alt=""
-            /></a>
-          </p>
+          <div class="newbie">
+            <p>
+              <a href="social-links-profile-main/index.html"
+                ><img src="social-links-profile-main/preview.jpg" alt=""
+              /></a>
+            </p>
+          </div>
         </div>
         <div class="challenge html-tag">
-          <p>
-            <a href="results-summary-component-main/index.html"
-              ><img src="results-summary-component-main/preview.jpg" alt=""
-            /></a>
-          </p>
+          <div class="newbie">
+            <p>
+              <a href="results-summary-component-main/index.html"
+                ><img src="results-summary-component-main/preview.jpg" alt=""
+              /></a>
+            </p>
+          </div>
         </div>
         <div class="challenge html-tag">
-          <p>
-            <a href="testimonials-grid-section-main/index.html"
-              ><img src="testimonials-grid-section-main/preview.jpg" alt=""
-            /></a>
-          </p>
+          <div class="junior">
+            <p>
+              <a href="testimonials-grid-section-main/index.html"
+                ><img src="testimonials-grid-section-main/preview.jpg" alt=""
+              /></a>
+            </p>
+          </div>
         </div>
         <div class="challenge html-tag">
-          <p>
-            <a href="bento-grid-main/index.html"
-              ><img src="bento-grid-main/preview.jpg" alt=""
-            /></a>
-          </p>
+          <div class="junior">
+            <p>
+              <a href="bento-grid-main/index.html"
+                ><img src="bento-grid-main/preview.jpg" alt=""
+              /></a>
+            </p>
+          </div>
         </div>
         <div class="challenge html-tag">
-          <p>
-            <a href="fylo-data-storage-component-master/index.html"
-              ><img src="fylo-data-storage-component-master/preview.jpg" alt=""
-            /></a>
-          </p>
+          <div class="junior">
+            <p>
+              <a href="fylo-data-storage-component-master/index.html"
+                ><img
+                  src="fylo-data-storage-component-master/preview.jpg"
+                  alt=""
+              /></a>
+            </p>
+          </div>
         </div>
         <div class="challenge html-tag">
-          <p>
-            <a href="fylo-landing-page-with-two-column-layout-master/index.html"
-              ><img
-                src="fylo-landing-page-with-two-column-layout-master/preview.jpg"
-                alt=""
-            /></a>
-          </p>
+          <div class="junior">
+            <p>
+              <a
+                href="fylo-landing-page-with-two-column-layout-master/index.html"
+                ><img
+                  src="fylo-landing-page-with-two-column-layout-master/preview.jpg"
+                  alt=""
+              /></a>
+            </p>
+          </div>
         </div>
         <div class="challenge html-tag">
-          <p>
-            <a href="huddle-landing-page-with-curved-sections-master/index.html"
-              ><img
-                src="huddle-landing-page-with-curved-sections-master/preview.jpg"
-                alt=""
-            /></a>
-          </p>
+          <div class="junior">
+            <p>
+              <a
+                href="huddle-landing-page-with-curved-sections-master/index.html"
+                ><img
+                  src="huddle-landing-page-with-curved-sections-master/preview.jpg"
+                  alt=""
+              /></a>
+            </p>
+          </div>
         </div>
         <div class="challenge html-tag">
-          <p>
-            <a href="chat-app-css-illustration-master/index.html"
-              ><img src="chat-app-css-illustration-master/preview.jpg" alt=""
-            /></a>
-          </p>
+          <div class="intermediate">
+            <p>
+              <a href="chat-app-css-illustration-master/index.html"
+                ><img src="chat-app-css-illustration-master/preview.jpg" alt=""
+              /></a>
+            </p>
+          </div>
         </div>
       </div>
     </main>
