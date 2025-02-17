@@ -9,5 +9,5 @@ This is a solution to the [Huddle landing page with curved sections challenge on
 
 ### Links
 
-[- Solution URL](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/huddle-landing-page-with-curved-sections-master)
+[- Solution URL](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/huddle-landing-page-with-curved-sections-master) <br />
 [- Live Site URL](https://wolvsrcool.github.io/Frontend-Mentor/huddle-landing-page-with-curved-sections-master/index.html)

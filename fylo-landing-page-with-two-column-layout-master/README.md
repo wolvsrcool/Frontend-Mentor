@@ -9,5 +9,5 @@ This is a solution to the [Fylo landing page with two column layout challenge on
 
 ### Links
 
-[- Solution URL](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/fylo-landing-page-with-two-column-layout-master)
+[- Solution URL](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/fylo-landing-page-with-two-column-layout-master) <br />
 [- Live Site URL](https://wolvsrcool.github.io/Frontend-Mentor/fylo-landing-page-with-two-column-layout-master/index.html)

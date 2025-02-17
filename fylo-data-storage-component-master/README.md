@@ -9,5 +9,5 @@ This is a solution to the [Fylo data storage component challenge on Frontend Men
 
 ### Links
 
-[- Solution URL](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/fylo-data-storage-component-master)
+[- Solution URL](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/fylo-data-storage-component-master) <br />
 [- Live Site URL](https://wolvsrcool.github.io/Frontend-Mentor/fylo-data-storage-component-master/index.html)
