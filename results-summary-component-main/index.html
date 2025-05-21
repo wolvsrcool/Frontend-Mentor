@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Results summary component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        position: fixed;
+        bottom: 0;
+        font-size: 11px;
+        text-align: center;
+        color: hsl(0, 0%, 0%);
+        width: 100vw;
+        z-index: -1;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      @font-face {
+        font-family: HankenGrotesk;
+        src: url(assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        background-color: hsl(221, 100%, 96%);
+        font-family: HankenGrotesk;
+        color: hsl(0, 0%, 100%);
+        min-height: 100vh;
+        display: flex;
+      }
+
+      p {
+        font-size: 1.8rem;
+      }
+
+      section {
+        max-width: 64rem;
+        padding: 1.6rem;
+        margin: auto auto;
+        position: relative;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 15px;
+        box-shadow: 0 0 4.8rem rgba(0, 0, 0, 0.075);
+      }
+
+      .score,
+      .statistics {
+        padding: 3.2rem;
+        border-radius: 15px;
+      }
+
+      .score {
+        background-image: linear-gradient(
+          hsl(252, 100%, 67%),
+          hsl(241, 81%, 54%)
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .rslt-text {
+        margin-bottom: 2.4rem;
+        font-size: 2rem;
+      }
+
+      .circle {
+        background-image: linear-gradient(
+          hsla(256, 72%, 46%, 1),
+          hsla(241, 72%, 46%, 0)
+        );
+        width: 18rem;
+        height: 18rem;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 3.2rem;
+      }
+
+      /* Great */
+      .score p:nth-child(3) {
+        font-size: 2.8rem;
+        margin-bottom: 1.6rem;
+      }
+
+      .score p:nth-child(4) {
+        text-align: center;
+        color: hsl(0, 0%, 80%);
+        font-size: 1.8rem;
+      }
+
+      .main-number {
+        font-size: 6.4rem;
+        color: hsl(0, 0%, 100%);
+        font-weight: 700;
+      }
+
+      .sub-number {
+        color: hsl(0, 0%, 70%);
+      }
+
+      .statistics {
+        background-color: hsl(0, 0%, 100%);
+        color: hsl(224, 30%, 27%);
+      }
+
+      .statistics p {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 3.2rem;
+      }
+
+      .statistics ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        margin-bottom: 3.2rem;
+      }
+
+      .statistics ul li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background-color: #620c0c96;
+        padding: 1.6rem;
+        border-radius: 6px;
+      }
+
+      ul li span img {
+        margin-right: 1.2rem;
+      }
+
+      ul li span {
+        display: flex;
+        align-items: center;
+        font-size: 1.6rem;
+      }
+
+      ul li span:nth-child(1) {
+        font-weight: 700;
+      }
+
+      ul li span:nth-child(2) strong {
+        color: hsl(224, 30%, 27%);
+      }
+
+      ul li span:nth-child(2) {
+        color: hsl(0, 0%, 70%);
+      }
+
+      .statistics ul li:nth-child(1) {
+        background-color: rgba(255, 87, 87, 0.1);
+      }
+
+      .statistics ul li:nth-child(1) span:nth-child(1) {
+        color: hsl(0, 100%, 67%);
+      }
+
+      .statistics ul li:nth-child(2) {
+        background-color: rgba(255, 177, 31, 0.1);
+      }
+
+      .statistics ul li:nth-child(2) span:nth-child(1) {
+        color: hsl(39, 100%, 56%);
+      }
+
+      .statistics ul li:nth-child(3) {
+        background-color: rgba(0, 189, 145, 0.1);
+      }
+
+      .statistics ul li:nth-child(3) span:nth-child(1) {
+        color: hsl(166, 100%, 37%);
+      }
+
+      .statistics ul li:nth-child(4) {
+        background-color: rgba(17, 36, 212, 0.1);
+      }
+
+      .statistics ul li:nth-child(4) span:nth-child(1) {
+        color: hsl(234, 85%, 45%);
+      }
+
+      .statistics button {
+        width: 100%;
+        border: none;
+        height: 4.8rem;
+        padding: 1.6rem;
+        border-radius: 50px;
+        color: hsl(0, 0%, 100%);
+        background-color: hsl(224, 30%, 27%);
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+        font-size: 1.4rem;
+      }
+
+      .statistics button::after {
+        position: absolute;
+        transition: 0.3s;
+        content: "";
+        width: 100%;
+        padding-bottom: 4.8rem;
+        background-image: linear-gradient(
+          hsl(252, 100%, 67%),
+          hsl(241, 81%, 54%)
+        );
+        left: 0;
+        top: 0;
+        border-radius: 50px;
+        z-index: -1;
+        opacity: 0;
+      }
+
+      .statistics button:hover::after {
+        opacity: 1;
+      }
+
+      @media (max-width: 40em) {
+        html {
+          font-size: 43.375%;
+        }
+        section {
+          padding: 0;
+        }
+
+        .grid-container {
+          grid-template-columns: 1fr;
+          transform: translateY(0);
+          top: 0;
+        }
+
+        .score {
+          border-radius: 80px;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          padding: 3.2rem 8rem 4.8rem;
+        }
+
+        .rslt-text {
+          font-size: 3rem;
+          margin-bottom: 2.4rem;
+        }
+
+        .circle {
+          width: 22rem;
+          height: 22rem;
+        }
+
+        .main-number {
+          font-size: 9rem;
+        }
+
+        .sub-number {
+          font-size: 2.8rem;
+        }
+
+        /* Great */
+        .score p:nth-child(3) {
+          font-size: 3.6rem;
+          margin-bottom: 2.4rem;
+        }
+
+        .score p:nth-child(4) {
+          font-size: 2.4rem;
+        }
+
+        .statistics {
+          padding: 4.8rem;
+          padding-top: 3.2rem;
+          border-radius: 0;
+        }
+
+        .statistics p {
+          font-size: 3rem;
+          margin-bottom: 2.4rem;
+        }
+
+        .statistics ul {
+          gap: 2.2rem;
+        }
+
+        .statistics ul li {
+          border-radius: 16px;
+        }
+
+        .statistics ul li span img {
+          height: 3rem;
+          width: 3rem;
+        }
+
+        .statistics ul li span {
+          font-size: 2.4rem;
+          height: 4rem;
+        }
+
+        .statistics button {
+          font-size: 2.8rem;
+          padding: 3.6rem;
+          border-radius: 100px;
+          height: 8rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .statistics button::after {
+          padding-bottom: 8rem;
+          border-radius: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="grid-container">
+        <div class="score">
+          <p class="rslt-text">Your Result</p>
+          <div class="circle">
+            <p class="main-number">76</p>
+            <p class="sub-number">of 100</p>
+          </div>
+          <p>Great</p>
+          <p>
+            You scored higher than 65% of the people who have taken these tests.
+          </p>
+        </div>
+        <div class="statistics">
+          <p>Summary</p>
+          <ul>
+            <li>
+              <span
+                ><img
+                  src="assets/images/icon-reaction.svg"
+                  alt="Reaction symbol"
+                />
+                Reaction</span
+              >
+              <span><strong>80</strong>&nbsp;&nbsp;/ 100</span>
+            </li>
+            <li>
+              <span
+                ><img src="assets/images/icon-memory.svg" alt="Memory symbol" />
+                Memory</span
+              >
+              <span><strong>92</strong>&nbsp;&nbsp;/ 100</span>
+            </li>
+            <li>
+              <span
+                ><img src="assets/images/icon-verbal.svg" alt="Verbal symbol" />
+                Verbal</span
+              >
+              <span><strong>61</strong>&nbsp;&nbsp;/ 100</span>
+            </li>
+            <li>
+              <span
+                ><img src="assets/images/icon-visual.svg" alt="Visual symbol" />
+                Visual</span
+              >
+              <span><strong>72&nbsp;&nbsp;</strong>/ 100</span>
+            </li>
+          </ul>
+          <button>Continue</button>
+        </div>
+      </div>
+    </section>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">wolvsrcool</a>.
+    </div>
+  </body>
+</html>

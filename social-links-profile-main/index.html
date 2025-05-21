@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Social links profile</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        z-index: -1;
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        background-color: hsl(0, 0%, 8%);
+        color: hsl(0, 0%, 100%);
+        font-family: "Inter";
+        min-height: 100vh;
+        display: flex;
+      }
+
+      p {
+        font-size: 1.4rem;
+      }
+
+      article {
+        margin: auto;
+        max-width: 32.5rem;
+        padding: 1.6rem;
+        position: relative;
+      }
+
+      .container {
+        border-radius: 12px;
+        padding: 3.2rem;
+        background-color: hsl(0, 0%, 12%);
+        width: 100%;
+      }
+
+      .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      img {
+        border-radius: 50%;
+        text-align: center;
+        margin-bottom: 2rem;
+        width: 8rem;
+      }
+
+      .full-name {
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 1.2rem;
+      }
+
+      .location {
+        color: hsl(75, 94%, 57%);
+        font-size: 1.1rem;
+        margin-bottom: 3.2rem;
+        font-weight: 600;
+      }
+
+      .about {
+        margin-bottom: 2.8rem;
+        font-size: 1.2rem;
+      }
+
+      nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        list-style: none;
+      }
+
+      li a:link,
+      li a:visited {
+        color: hsl(0, 0%, 100%);
+        text-decoration: none;
+        display: block;
+        background-color: hsl(0, 0%, 20%);
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1.2rem 2.4rem;
+        font-size: 1.4rem;
+        border-radius: 6px;
+        transition: 0.3s;
+      }
+
+      li a:hover,
+      li a:focus {
+        background-color: hsl(75, 94%, 57%);
+        color: hsl(0, 0%, 8%);
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <div class="container">
+        <div class="profile">
+          <img
+            src="assets/images/avatar-jessica.jpeg"
+            alt="Picture of Jessica Randall"
+          />
+          <p class="full-name">Jessica Randall</p>
+          <p class="location">London, United Kingdom</p>
+          <p class="about">"Front-end developer and avid reader."</p>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Frontend Mentor</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </nav>
+      </div>
+    </article>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">wolvsrcool</a>.
+    </div>
+  </body>
+</html>

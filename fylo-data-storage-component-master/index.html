@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Fylo data storage component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        z-index: -1;
+        font-size: 11px;
+        text-align: center;
+        color: white;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-size: 1.4rem;
+        font-family: "Raleway";
+        background-color: hsl(229, 57%, 11%);
+        background-image: url(images/bg-desktop.png);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100vw 50vh;
+        min-height: 100vh;
+        display: flex;
+      }
+
+      section {
+        max-width: 100rem;
+        width: 100%;
+        margin: auto;
+      }
+
+      .container {
+        display: flex;
+        width: 100%;
+        gap: 3.6rem;
+        padding: 3.6rem;
+      }
+
+      .logo-container,
+      .progress-bar-container {
+        background-color: hsl(228, 56%, 26%);
+        padding: 3.6rem;
+        border-radius: 12px;
+        box-shadow: 0rem 6.4rem 0rem 6.4rem hsla(0, 0%, 0%, 0.02);
+      }
+
+      .logo-container {
+        padding-right: 12rem;
+        border-top-right-radius: 100px;
+      }
+
+      .logo {
+        margin-bottom: 2.4rem;
+      }
+
+      .icons {
+        display: flex;
+        gap: 1.6rem;
+        align-items: center;
+      }
+
+      .icon {
+        width: 4.2rem;
+        height: 4.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: hsl(229, 57%, 11%);
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .progress-bar-container {
+        align-self: flex-end;
+        color: hsl(243, 100%, 93%);
+        position: relative;
+        width: 100%;
+      }
+
+      .pg-bar-text {
+        margin-bottom: 1.6rem;
+      }
+
+      .progress-bar-container progress {
+        width: 100%;
+        height: 2rem;
+        appearance: none;
+        margin-bottom: 0.8rem;
+        position: relative;
+      }
+
+      .progress-bar-container progress::-webkit-progress-bar {
+        border: 3px solid hsl(229, 57%, 11%);
+        border-radius: 50px;
+        background-color: hsl(229, 57%, 11%);
+      }
+
+      .progress-bar-container progress::-webkit-progress-value {
+        border-radius: 50px;
+        background-image: linear-gradient(
+          to right,
+          hsl(6, 100%, 80%),
+          hsl(335, 100%, 65%)
+        );
+      }
+
+      .progress-bar-container progress::after {
+        content: "";
+        padding-top: 1.2rem;
+        width: 1.2rem;
+        background-color: hsl(0, 0%, 100%);
+        position: absolute;
+        left: 81.5%;
+        top: 50%;
+        transform: translate(-1.5rem, -50%);
+        border-radius: 50%;
+      }
+
+      .under-bar-txt {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+      }
+
+      .gb-left {
+        position: absolute;
+        background-color: hsl(0, 0%, 100%);
+        color: hsl(229, 57%, 11%);
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        right: 3.6rem;
+        top: 0;
+        transform: translateY(-50%);
+        padding: 0.8rem 1.6rem;
+        border-radius: 8px;
+        font-weight: 700;
+        width: fit-content;
+      }
+
+      .gb-left::after {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 3.6rem solid hsl(0, 0%, 100%);
+        border-left: 3.6rem solid transparent;
+        right: 0;
+        bottom: 0;
+        transform: translateY(50%);
+      }
+
+      .gb-left p:first-child {
+        font-size: 3.6rem;
+      }
+
+      .gb-left p:last-child {
+        font-size: 1.2rem;
+        color: hsl(229, 7%, 55%);
+      }
+
+      @media (max-width: 56em) {
+        body {
+          background-image: url(images/bg-mobile.png);
+          background-size: 100% 100%;
+        }
+        .container {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 2.4rem;
+        }
+      }
+
+      @media (max-width: 36em) {
+        .container {
+          gap: 2.4rem;
+          padding: 2.4rem;
+          align-items: stretch;
+        }
+
+        .logo-container {
+          align-self: flex-start;
+        }
+
+        .gb-left {
+          left: 50%;
+          top: 100%;
+          transform: translate(-50%, -50%);
+          box-shadow: 0 0 4.8rem rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar-container {
+          text-align: center;
+        }
+
+        .gb-left p:first-child {
+          font-size: 3rem;
+        }
+
+        .gb-left p:last-child {
+          font-size: 1rem;
+          color: hsl(229, 7%, 55%);
+        }
+
+        .gb-left::after {
+          display: none;
+        }
+      }
+
+      @media (max-width: 25em) {
+        html {
+          font-size: 56.25%;
+        }
+
+        .container {
+          gap: 1.6rem;
+        }
+
+        .logo-container {
+          align-self: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="logo-container">
+          <img class="logo" src="images/logo.svg" alt="" />
+          <div class="icons">
+            <div class="icon">
+              <img src="images/icon-document.svg" alt="" />
+            </div>
+            <div class="icon"><img src="images/icon-folder.svg" alt="" /></div>
+            <div class="icon"><img src="images/icon-upload.svg" alt="" /></div>
+          </div>
+        </div>
+        <div class="progress-bar-container">
+          <p class="pg-bar-text">
+            You’ve used <strong>815 GB</strong> of your storage
+          </p>
+          <progress max="1000" value="815"></progress>
+          <div class="under-bar-txt">
+            <p>0 GB</p>
+            <p>1000 GB</p>
+          </div>
+          <div class="gb-left">
+            <p>185&nbsp;</p>
+            <p>GB Left</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">wolvsrcool</a>.
+    </div>
+  </body>
+</html>
