@@ -81,7 +81,30 @@
         box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.05);
         transition: all 0.2s;
         opacity: 1;
+        z-index: 100;
         pointer-events: none;
+      }
+
+      .js-tag::before {
+        position: absolute;
+        width: fit-content;
+        content: "js";
+        padding: 0.6rem 1.2rem;
+        background-color: #d0bfff;
+        background-image: linear-gradient(270deg, #d982a6, #a64f73);
+        color: #edf2ff;
+        border-bottom-left-radius: 16px;
+        text-transform: uppercase;
+        font-family: "Inter", sans-serif;
+        letter-spacing: 1px;
+        font-size: 1.2rem;
+        top: 0;
+        right: 0;
+        box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.05);
+        transition: all 0.2s;
+        opacity: 1;
+        pointer-events: none;
+        z-index: 100;
       }
 
       .newbie {
@@ -236,6 +259,15 @@
             <p>
               <a href="chat-app-css-illustration-master/index.html"
                 ><img src="chat-app-css-illustration-master/preview.jpg" alt=""
+              /></a>
+            </p>
+          </div>
+        </div>
+        <div class="challenge html-tag js-tag">
+          <div class="newbie">
+            <p>
+              <a href="faq-accordion-main/index.html"
+                ><img src="faq-accordion-main/preview.jpg" alt=""
               /></a>
             </p>
           </div>

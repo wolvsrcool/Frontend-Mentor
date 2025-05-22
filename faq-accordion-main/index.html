@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | FAQ accordion</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        text-align: center;
+        font-size: 11px;
+        text-align: center;
+        z-index: -1;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        font-size: 1.6rem;
+        background-color: hsl(275, 100%, 97%);
+        background-image: url(./assets/images/background-pattern-desktop.svg);
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 100vw;
+        font-family: "Work Sans";
+        line-height: 1.4;
+        font-weight: 400;
+        color: hsl(292, 16%, 49%);
+      }
+
+      .container {
+        max-width: 60rem;
+        width: 100%;
+        margin: auto;
+        padding: 1.6rem;
+      }
+
+      section {
+        background-color: hsl(0, 100%, 100%);
+        padding: 3.2rem;
+        border-radius: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        box-shadow: 0 1.6rem 2.4rem rgba(0, 0, 0, 0.075);
+      }
+
+      h2,
+      h3 {
+        color: hsl(292, 42%, 14%);
+      }
+
+      h2 {
+        font-size: 5.2rem;
+        font-weight: 700;
+      }
+
+      h3 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      hr {
+        border: none;
+        height: 1px;
+        background-color: hsl(275, 100%, 97%);
+      }
+
+      .header {
+        display: flex;
+        gap: 2.4rem;
+      }
+
+      .acc-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .acc-icon {
+        transition: 0.3s;
+        transform: rotate(180deg);
+      }
+
+      .acc-header:hover h3 {
+        color: #ad28eb;
+      }
+
+      .acc-item p {
+        margin-top: 2.4rem;
+      }
+
+      .acc-item.closed p {
+        display: none;
+      }
+
+      @media (max-width: 36em) {
+        body {
+          background-image: url(./assets/images/background-pattern-mobile.svg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section>
+        <div class="header">
+          <img src="assets/images/icon-star.svg" alt="" />
+          <h2>FAQs</h2>
+        </div>
+        <div class="acc-item">
+          <div class="acc-header">
+            <h3>What is Frontend Mentor, and how will it help me?</h3>
+            <img
+              src="assets/images/icon-minus.svg"
+              class="acc-icon"
+              style="transform: rotate(0deg)"
+              alt=""
+            />
+          </div>
+          <p>
+            Frontend Mentor offers realistic coding challenges to help
+            developers improve their frontend coding skills with projects in
+            HTML, CSS, and JavaScript. It's suitable for all levels and ideal
+            for portfolio building.
+          </p>
+        </div>
+        <hr />
+        <div class="acc-item closed">
+          <div class="acc-header">
+            <h3>Is Frontend Mentor free?</h3>
+            <img src="assets/images/icon-plus.svg" class="acc-icon" alt="" />
+          </div>
+
+          <p>
+            Yes, Frontend Mentor offers both free and premium coding challenges,
+            with the free option providing access to a range of projects
+            suitable for all skill levels.
+          </p>
+        </div>
+        <hr />
+        <div class="acc-item closed">
+          <div class="acc-header">
+            <h3>Can I use Frontend Mentor projects in my portfolio?</h3>
+            <img src="assets/images/icon-plus.svg" class="acc-icon" alt="" />
+          </div>
+
+          <p>
+            Yes, you can use projects completed on Frontend Mentor in your
+            portfolio. It's an excellent way to showcase your skills to
+            potential employers!
+          </p>
+        </div>
+        <hr />
+        <div class="acc-item closed">
+          <div class="acc-header">
+            <h3>How can I get help if I'm stuck on a challenge?</h3>
+            <img src="assets/images/icon-plus.svg" class="acc-icon" alt="" />
+          </div>
+
+          <p>
+            The best place to get help is inside Frontend Mentor's Discord
+            community. There's a help channel where you can ask questions and
+            seek support from other community members.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">wolvsrcool</a>.
+    </div>
+    <script>
+      accHeaders = document.querySelectorAll(".acc-header");
+      accItems = document.querySelectorAll(".acc-item");
+      accHeadersIcons = document.querySelectorAll(".acc-icon");
+
+      for (let i = 0; i < accHeaders.length; i++) {
+        accHeaders[i].addEventListener("click", function () {
+          accItems[i].classList.toggle("closed");
+          if (accItems[i].classList.contains("closed")) {
+            accHeadersIcons[i].src = "./assets/images/icon-plus.svg";
+            accHeadersIcons[i].style.transform = "rotate(180deg)";
+          } else {
+            accHeadersIcons[i].src = "./assets/images/icon-minus.svg";
+            accHeadersIcons[i].style.transform = "rotate(0deg)";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
