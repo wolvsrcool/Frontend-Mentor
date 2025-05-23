@@ -1,0 +1,560 @@
+.attribution {
+  margin-top: auto;
+  text-align: center;
+  z-index: -1;
+  font-size: 11px;
+  text-align: center;
+  color: white;
+}
+.attribution a {
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url(./assets/images/pattern-circle.svg),
+    url(./assets/images/pattern-circle.svg),
+    url(./assets/images/pattern-lines.svg),
+    url(./assets/images/pattern-squiggly-line-bottom-desktop.svg),
+    url(./assets/images/pattern-squiggly-line-top.svg),
+    url(./assets/images/background-desktop.png);
+  background-repeat: no-repeat;
+  background-size: auto, auto, cover, 60vw 50vh, auto, cover;
+  background-position: 7.5% -12.5%, 75% 56%, top, 0% 100%, 100% 12.5%, center;
+  color: hsl(0, 0%, 100%);
+  font-family: "Inconsolata";
+}
+
+.main-logo {
+  height: 3.2rem;
+  margin-bottom: 5.2rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 86rem;
+  padding: 3.2rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+h2 {
+  font-size: 5.6rem;
+}
+
+.sub-header {
+  font-size: 2.2rem;
+  color: hsla(252, 6%, 83%, 0.8);
+  margin-bottom: 2.4rem;
+}
+
+form label {
+  font-size: 2rem;
+  text-align: start;
+  color: hsl(252, 6%, 83%);
+  font-weight: 500;
+}
+
+.form-inputs {
+  max-width: 42.5rem;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 12.8rem;
+  gap: 1.6rem;
+  width: 100%;
+  padding: 1.6rem 3.2rem;
+  background-color: hsl(245, 15%, 58%, 0.2);
+  justify-content: center;
+  text-align: center;
+  color: hsl(245, 15%, 58%);
+  border-radius: 12px;
+  border: 2px dashed hsl(245, 15%, 58%);
+  transition: 0.3s;
+}
+
+.file-upload:hover {
+  background-color: hsl(245, 15%, 58%, 0.4);
+  cursor: pointer;
+}
+
+.file-upload img {
+  padding: 0.6rem;
+  height: 4.8rem;
+  background-color: hsla(245, 19%, 35%, 0.6);
+  border-radius: 8px;
+  border: 1px solid hsla(246, 15%, 58%, 0.4);
+  transition: 0.3s;
+}
+
+.file-upload:hover img {
+  background-color: hsla(245, 19%, 35%, 0.8);
+  border-radius: 8px;
+  border: 1px solid hsla(246, 15%, 58%, 0.6);
+}
+
+.file-upload p {
+  font-size: 1.6rem;
+}
+
+.info-p,
+.error-p {
+  display: flex;
+  align-items: center;
+  color: #8784a4;
+  gap: 0.6rem;
+  font-size: 1.2rem;
+}
+
+.info-p img {
+  filter: invert(56%) sepia(11%) saturate(792%) hue-rotate(206deg)
+    brightness(94%) contrast(83%);
+}
+
+.img-btns button {
+  background-color: hsla(246, 15%, 58%, 0.2);
+  border: none;
+  padding: 0.4rem 0.8rem;
+  color: hsl(252, 6%, 83%);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.img-btns button:hover {
+  transform: scale(1.01);
+  background-color: hsla(246, 15%, 58%, 0.4);
+}
+
+.img-btns button:nth-child(1) {
+  text-decoration: underline;
+}
+
+.error-p {
+  color: #ff6b6b;
+  display: none;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(10%);
+}
+
+.error-p img {
+  filter: invert(81%) sepia(63%) saturate(844%) hue-rotate(303deg)
+    brightness(98%) contrast(106%);
+}
+
+input {
+  transition: 0.2s;
+}
+
+.text-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+}
+
+#input-name:user-invalid,
+#input-email:user-invalid {
+  outline: 2px solid #ff6b6b;
+}
+
+#input-email:user-invalid ~ .error-p {
+  display: flex;
+}
+
+#input-name,
+#input-email,
+#input-github {
+  height: 5.2rem;
+  padding: 1.6rem;
+  border-radius: 10px;
+  background-color: hsl(245, 15%, 58%, 0.2);
+  border: 1px solid hsl(245, 15%, 58%);
+  color: hsl(0, 0%, 100%);
+  font-size: 1.8rem;
+  transition: 0.3s;
+}
+
+#input-name:hover,
+#input-email:hover,
+#input-github:hover {
+  background-color: hsl(245, 15%, 58%, 0.5);
+  cursor: pointer;
+}
+
+#input-name:focus,
+#input-email:focus,
+#input-github:focus {
+  cursor: text;
+}
+
+input::placeholder {
+  color: hsla(252, 6%, 83%, 0.7);
+}
+
+input:is(:-webkit-autofil, :autofill) {
+  border: 20px solid black;
+}
+
+input:-internal-autofill-selected {
+  background-color: hsl(245, 15%, 58%, 0.2) !important;
+}
+
+.btn-submit {
+  height: 5.2rem;
+  border-radius: 10px;
+  background-color: hsl(7, 88%, 67%);
+  color: hsl(248, 70%, 10%);
+  border: 1px solid hsl(7, 88%, 67%);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: hsl(7, 71%, 60%);
+  transform: scale(1.01);
+}
+
+*:focus {
+  outline: 2px solid hsla(252, 6%, 83%, 0.8);
+  outline-offset: 3px;
+}
+
+.ticket-page .sub-header {
+  margin: 3.2rem auto 10rem;
+  max-width: 45rem;
+  color: hsl(252, 6%, 83%);
+}
+
+.ticket {
+  background-image: url(./assets/images/pattern-ticket.svg);
+  background-size: cover;
+  width: 60rem;
+  height: 28rem;
+  margin: auto;
+  margin-bottom: 10rem;
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.ticket-number {
+  position: absolute;
+  right: 0;
+  content: "#01609";
+  top: 50%;
+  font-size: 3.2rem;
+  transform: translateY(-50%) rotate(90deg);
+  color: hsl(252, 6%, 83%, 0.7);
+}
+
+.tick-header {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.tick-header img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.tick-header div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.tick-header div h3 {
+  font-size: 3.6rem;
+}
+
+.tick-header div p {
+  font-size: 1.8rem;
+  color: hsl(252, 6%, 83%, 0.8);
+}
+
+.ticket-person {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.ticket-picture {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 12px;
+  background-color: red;
+}
+
+.ticket-person div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.ticket-person div img {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.ticket-person div p:nth-child(1) {
+  font-size: 2.6rem;
+}
+
+.ticket-person div p:nth-child(2) {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  font-size: 2rem;
+  color: hsl(252, 6%, 83%, 0.95);
+}
+
+.grad {
+  background-image: linear-gradient(
+    to right,
+    hsl(7, 86%, 67%),
+    hsl(0, 0%, 100%)
+  );
+  color: transparent;
+  background-clip: text;
+}
+
+#email-address {
+  color: hsl(7, 88%, 67%);
+}
+
+.git-inp-label {
+  position: relative;
+}
+
+.user-invalid input {
+  outline: 2px solid #ff6b6b;
+}
+
+.user-invalid .error-p {
+  display: flex;
+}
+
+@media (max-width: 64em) {
+  html {
+    font-size: 56.25%;
+  }
+
+  body {
+    background-image: url(./assets/images/pattern-circle.svg),
+      url(./assets/images/pattern-lines.svg),
+      url(./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg),
+      url(./assets/images/pattern-squiggly-line-top.svg),
+      url(./assets/images/background-tablet.png);
+    background-size: auto, cover, 70%, 40%, cover;
+    background-position: 7.5% -12.5%, top, 0% 100%, 100% 5%, center;
+  }
+
+  .container {
+    padding: 3.2rem 4.2rem;
+  }
+
+  .main-form {
+    margin-bottom: 4rem;
+  }
+
+  .ticket-page .sub-header {
+    margin-bottom: 8rem;
+  }
+
+  .ticket-page h2 {
+    font-size: 4.8rem;
+  }
+
+  .ticket {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 42em) {
+  .container {
+    padding: 3.2rem 2.4rem;
+  }
+
+  .main-logo {
+    margin-bottom: 4.2rem;
+  }
+
+  .ticket-page h2 {
+    font-size: 4.4rem;
+  }
+
+  .ticket-page .sub-header {
+    margin-bottom: 12rem;
+  }
+
+  .ticket {
+    width: 30rem;
+    height: 14rem;
+    transform: scale(1.4);
+    padding: 1.2rem;
+  }
+
+  .ticket-number {
+    font-size: 2rem;
+    transform: translate(10%, -50%) rotate(90deg);
+  }
+
+  .tick-header {
+    gap: 0.6rem;
+  }
+
+  .tick-header img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .tick-header div {
+    gap: 0.6rem;
+  }
+
+  .tick-header div h3 {
+    font-size: 2.25rem;
+  }
+
+  .tick-header div p {
+    font-size: 1.125rem;
+  }
+
+  .ticket-person {
+    gap: 0.6rem;
+  }
+
+  .ticket-picture {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 8px;
+  }
+
+  .ticket-person div {
+    gap: 0.6rem;
+  }
+
+  .ticket-person div img {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .ticket-person div p:nth-child(1) {
+    font-size: 1.625rem;
+  }
+
+  .ticket-person div p:nth-child(2) {
+    gap: 0.2rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 32em) {
+  html {
+    font-size: 50%;
+  }
+
+  body {
+    background-image: url(./assets/images/pattern-lines.svg),
+      url(./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg),
+      url(./assets/images/pattern-squiggly-line-top.svg),
+      url(./assets/images/background-mobile.png);
+    background-size: cover, 80%, 30%, 200% 450%;
+    background-position: top, 0% 100%, 100% 3%, 75% 75%;
+  }
+
+  h2 {
+    font-size: 3.6rem;
+  }
+
+  .form-inputs {
+    margin-bottom: 8rem;
+  }
+
+  .text-inputs {
+    gap: 1.6rem;
+  }
+
+  #input-name,
+  #input-email,
+  #input-github,
+  .btn-submit {
+    height: 5.6rem;
+  }
+
+  .ticket-page .sub-header {
+    margin-bottom: 10rem;
+  }
+
+  .ticket {
+    transform: scale(1.4);
+  }
+}
+
+@media (max-width: 23em) {
+  .ticket {
+    transform: scale(1.2);
+  }
+
+  .ticket-page .sub-header {
+    margin-bottom: 8rem;
+  }
+
+  form label {
+    font-size: 1.9rem;
+  }
+
+  .error-p,
+  .info-p {
+    font-size: 1.1rem;
+    gap: 0.4rem;
+  }
+}

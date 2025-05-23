@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Conference ticket generator</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section>
+        <img src="./assets/images/logo-full.svg" class="main-logo" alt="" />
+
+        <form action="" class="main-form">
+          <h2>Your Journey to Coding Conf 2025 Starts Here!</h2>
+          <p class="sub-header">
+            Secure your spot at next year's biggest coding conference.
+          </p>
+          <div class="form-inputs">
+            <div class="text-inputs">
+              <label for="input-avatar">Upload Avatar</label>
+              <label tabindex="0" for="input-avatar" class="file-upload"
+                ><img src="./assets/images/icon-upload.svg" id="upload-img" alt="" />
+                <p class="dropAreaText">Drag and drop or click to upload</p>
+                <div class="img-btns hidden">
+                  <button type="button">Remove image</button>
+                  <button type="button">Change image</button>
+                </div>
+              </label>
+              <input
+                type="file"
+                name=""
+                accept="image/*"
+                id="input-avatar"
+                placeholder=""
+                hidden
+              />
+
+              <p class="info-p">
+                <img src="./assets/images/icon-info.svg" alt="" />Upload your
+                photo (JPG or PNG, max size: 500KB).
+              </p>
+              <p class="error-p">
+                <img src="./assets/images/icon-info.svg" alt="" />
+                File too large. Please upload a photo under 500KB.</p>
+              </p>
+            </div>
+
+            <div class="text-inputs">
+              <label for="input-name">Full Name</label>
+              <input type="text" id="input-name" required />
+            </div>
+
+            <div class="text-inputs">
+              <label for="input-email">Email Address</label>
+              <input
+                type="email"
+                placeholder="example@email.com"
+                id="input-email"
+                required
+              />
+              <p class="error-p">
+                <img src="./assets/images/icon-info.svg" alt="" />
+                Please enter a valid email address.</p>
+              </p>
+            </div>
+
+            <div class="text-inputs">
+              <label class="git-inp-label" for="input-github">GitHub Username</label>
+              <input
+                type="text"
+                name=""
+                id="input-github"
+                placeholder="@yourusername"
+                required
+              />
+              <p class="error-p">
+                <img src="./assets/images/icon-info.svg" alt="" />
+                Must strart with @</p>
+              </p>
+            </div>
+
+            <input
+              class="btn-submit"
+              type="submit"
+              value="Generate My Ticket"
+            />
+          </div>
+        </form>
+
+        <div class="ticket-page hidden">
+            <h2>
+              Congrats, <span class="full-name grad">Jonathan Kristof</span>! Your ticket is ready.
+            </h2>
+          <p class="sub-header">
+            We've emailed your ticket to <span id="email-address">jonatan@email.com</span> and will send updates in the run up to the event.
+          </p>
+          <div class="ticket">
+            <p class="ticket-number">#01609</p>
+            <div class="tick-header">
+              <img src="./assets/images/logo-mark.svg" alt="" />
+              <div>
+                <h3>Coding Conf</h3>
+                <p>Jan 31, 2025 / Austin, TX</p>
+              </div>
+            </div>
+            <div class="ticket-person">
+              <img src="" class="ticket-picture" alt="" />
+              <div>
+                <p class="full-name">Jonathan Kristof</p>
+                <p>
+                  <img
+                    src="./assets/images/icon-github.svg"
+                    alt=""
+                  /><span id="github">@jonatankristof0101</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">wolvsrcool</a>.
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
