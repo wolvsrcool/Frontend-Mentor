@@ -386,6 +386,7 @@ input::placeholder {
 #github,
 #email-address {
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
