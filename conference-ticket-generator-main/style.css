@@ -35,7 +35,7 @@ body {
     url(./assets/images/pattern-squiggly-line-top.svg),
     url(./assets/images/background-desktop.png);
   background-repeat: no-repeat;
-  background-size: auto, auto, cover, 60vw 50vh, auto, cover;
+  background-size: auto, auto, cover, 65vw auto, auto, cover;
   background-position: 7.5% -12.5%, 75% 56%, top, 0% 100%, 100% 12.5%, center;
   color: hsl(0, 0%, 100%);
   font-family: "Inconsolata";
@@ -64,6 +64,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+  margin-bottom: 3.2rem;
 }
 
 h2 {
@@ -140,7 +141,14 @@ form label {
   align-items: center;
   color: #8784a4;
   gap: 0.6rem;
+}
+
+.info-p {
   font-size: 1.2rem;
+}
+
+.error-p {
+  font-size: 1.4rem;
 }
 
 .info-p img {
@@ -230,14 +238,6 @@ input {
 
 input::placeholder {
   color: hsla(252, 6%, 83%, 0.7);
-}
-
-input:is(:-webkit-autofil, :autofill) {
-  border: 20px solid black;
-}
-
-input:-internal-autofill-selected {
-  background-color: hsl(245, 15%, 58%, 0.2) !important;
 }
 
 .btn-submit {
@@ -382,6 +382,25 @@ input:-internal-autofill-selected {
   display: flex;
 }
 
+.full-name,
+#github,
+#email-address {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#email-address {
+  display: inline-block;
+  max-width: 45rem;
+}
+
+.ticket-person div p:nth-child(1) {
+  max-width: 35rem;
+}
+#github {
+  max-width: 30rem;
+}
+
 @media (max-width: 64em) {
   html {
     font-size: 56.25%;
@@ -413,6 +432,29 @@ input:-internal-autofill-selected {
     font-size: 4.8rem;
   }
 
+  .info-p,
+  .error-p {
+    font-size: 1.4rem;
+  }
+
+  .file-upload {
+    height: 14.4rem;
+  }
+
+  #input-name,
+  #input-email,
+  #input-github,
+  .btn-submit {
+    height: 5.6rem;
+  }
+
+  .full-name.grad {
+    max-width: 60rem;
+    margin: auto;
+    display: block;
+    overflow-wrap: break-word;
+  }
+
   .ticket {
     transform: scale(0.9);
   }
@@ -431,13 +473,17 @@ input:-internal-autofill-selected {
     font-size: 4.4rem;
   }
 
+  .full-name.grad {
+    max-width: 52rem;
+  }
+
   .ticket-page .sub-header {
     margin-bottom: 12rem;
   }
 
   .ticket {
-    width: 30rem;
-    height: 14rem;
+    width: 31.5rem;
+    height: 14.7rem;
     transform: scale(1.4);
     padding: 1.2rem;
   }
@@ -495,6 +541,13 @@ input:-internal-autofill-selected {
     gap: 0.2rem;
     font-size: 1.25rem;
   }
+
+  .ticket-person div p:nth-child(1) {
+    max-width: 16rem;
+  }
+  #github {
+    max-width: 14rem;
+  }
 }
 
 @media (max-width: 32em) {
@@ -527,7 +580,32 @@ input:-internal-autofill-selected {
   #input-email,
   #input-github,
   .btn-submit {
+    height: 6.4rem;
+    font-size: 1.8rem;
+  }
+
+  .info-p,
+  .error-p {
+    font-size: 1.6rem;
+    position: relative;
+  }
+
+  .error-p {
+    margin-top: -0.4rem;
+  }
+
+  .file-upload {
+    height: 14.4rem;
+  }
+
+  #input-name,
+  #input-email,
+  #input-github {
     height: 5.6rem;
+  }
+
+  .full-name.grad {
+    max-width: 40rem;
   }
 
   .ticket-page .sub-header {
@@ -552,9 +630,16 @@ input:-internal-autofill-selected {
     font-size: 1.9rem;
   }
 
-  .error-p,
-  .info-p {
-    font-size: 1.1rem;
-    gap: 0.4rem;
+  .form-inputs {
+    margin-bottom: 0;
+  }
+
+  .full-name.grad {
+    max-width: 32rem;
+  }
+
+  .info-p,
+  .error-p {
+    font-size: 1.7rem;
   }
 }

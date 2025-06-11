@@ -119,7 +119,12 @@ function generateTicket() {
   if (inputsValidity()) {
     ticketFormEl.classList.add("hidden");
     ticketEl.classList.remove("hidden");
-    fullNameEls[0].textContent = inpNameEl.value;
+    if (inpNameEl.value.length > 30) {
+      fullNameEls[0].textContent = inpNameEl.value.slice(0, 30) + "...!";
+    } else {
+      fullNameEls[0].textContent = inpNameEl.value + "!";
+    }
+
     fullNameEls[1].textContent = inpNameEl.value;
     emailEl.textContent = inpEmailEl.value;
     githubEl.textContent = inpGitEl.value;
