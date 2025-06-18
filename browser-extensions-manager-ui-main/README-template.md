@@ -11,5 +11,5 @@ This is a solution to the [Browser extensions manager UI challenge on Frontend M
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/browser-extensions-manager-ui-main)
+- Live Site URL: [Add live site URL here](https://wolvsrcool.github.io/Frontend-Mentor/browser-extensions-manager-ui-main/index.html)
