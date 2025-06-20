@@ -14,6 +14,10 @@ const modal = ` <div class="confirm-removal">
                   </div>
                 </div>`;
 
+const modalRemovedEl = document.querySelector(".modal-notif");
+const removedExtNameEl = modalRemovedEl.querySelector(".ext-name");
+const closeRemovedModalEl = modalRemovedEl.querySelector(".modal-notif-btn");
+
 changeThemeBtnEl.addEventListener("click", function () {
   bodyEl.classList.toggle("light");
   changeThemeBtnEl.classList.toggle("rotate");
@@ -66,7 +70,9 @@ for (let i = 0; i < removeBtnEls.length; i++) {
     for (let x = 0; x < modalBtnsEl.length; x++) {
       modalBtnsEl[x].addEventListener("click", function () {
         if (x === 0) {
+          const extName = extensionsEls[i].querySelector("h3").textContent;
           extensionsEls[i].remove();
+          displayPostRemovalModal(extName);
         } else if (x === 1) {
           modalEl.remove();
         }
@@ -80,4 +86,19 @@ function closeModals() {
   for (let i = 0; i < modalEls.length; i++) {
     modalEls[i].remove();
   }
+}
+
+closeRemovedModalEl.addEventListener("click", closePostRemovalModal);
+
+let timeoutID;
+
+function displayPostRemovalModal(extensionName) {
+  removedExtNameEl.textContent = extensionName;
+  modalRemovedEl.style.right = "0";
+  clearTimeout(timeoutID);
+  timeoutID = setTimeout(closePostRemovalModal, 3500);
+}
+
+function closePostRemovalModal() {
+  modalRemovedEl.style.right = "-200%";
 }

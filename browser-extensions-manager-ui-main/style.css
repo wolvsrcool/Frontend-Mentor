@@ -280,6 +280,41 @@ input:checked + .slider:before {
   opacity: 0.7;
 }
 
+.modal-notif {
+  position: fixed;
+  background-color: hsl(200, 60%, 99%);
+  right: -200%;
+  bottom: 0;
+  color: hsl(227, 75%, 14%);
+  font-size: 2rem;
+  padding: 1.6rem 3.2rem;
+  margin: 1.2rem;
+  padding-left: 1.6rem;
+  border-radius: 16px;
+  font-weight: 300;
+  transition: 0.3s;
+}
+
+.modal-notif-btn {
+  position: absolute;
+  right: 0.6rem;
+  top: 0.6rem;
+  width: 2rem;
+  background-color: transparent;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.ext-name {
+  font-weight: 500;
+}
+
 body.light {
   background-image: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
   color: hsl(227, 75%, 14%);
@@ -371,6 +406,11 @@ body.light {
   background-color: hsl(3, 77%, 44%);
 }
 
+.light .modal-notif {
+  color: hsl(200, 60%, 99%);
+  background-color: hsl(227, 75%, 14%);
+}
+
 @media (max-width: 74em) {
   .description {
     margin-bottom: 2.4rem;
@@ -414,5 +454,16 @@ body.light {
   .sub-header {
     flex-direction: column;
     gap: 2.4rem;
+  }
+}
+
+@media (max-width: 28rem) {
+  .modal-notif span {
+    display: block;
+  }
+
+  .modal-notif {
+    text-align: center;
+    padding: 1.6rem;
   }
 }
