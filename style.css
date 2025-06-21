@@ -46,7 +46,7 @@ body {
   display: flex;
   transition: 0.3s;
   border-radius: 6px;
-  z-index: 10;
+  z-index: 101;
   box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.05);
 }
 
@@ -118,7 +118,7 @@ body {
 .filter-menu {
   position: fixed;
   background-color: #f8f9fa;
-  z-index: 9;
+  z-index: 100;
   margin: 1.2rem;
   margin-top: -2.4rem;
   margin-right: 2.4rem;

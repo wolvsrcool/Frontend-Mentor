@@ -31,6 +31,27 @@ filterReset();
 
 window.addEventListener("pageshow", function () {
   filterReset();
+
+  const selected = document.querySelector(".grid-item.selected");
+  if (selected) {
+    selected.classList.remove("selected");
+    selected.style.position = "";
+    selected.style.left = "";
+    selected.style.top = "";
+    selected.style.transform = "";
+    selected.style.opacity = "";
+
+    document.body.style.overflow = "";
+    inputBlockerEl.style.display = "none";
+    openFilterMenuBtnEl.style.display = "";
+    filterMenuEl.style.display = "";
+    rstFunnyBtnEl.style.display = "";
+
+    chosenNameEl.style.display = "none";
+    chosenInfoEl.style.display = "none";
+    chosenNameEl.textContent = "";
+    chosenInfoEl.innerHTML = "";
+  }
 });
 
 let currentlyDisplayed;
