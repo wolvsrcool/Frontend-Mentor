@@ -309,6 +309,7 @@ input:checked + .slider:before {
   border: none;
   cursor: pointer;
   border-radius: 50%;
+  font-size: 2rem;
 }
 
 .ext-name {

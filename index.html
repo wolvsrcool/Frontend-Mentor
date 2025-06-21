@@ -14,25 +14,41 @@
     />
   </head>
   <body>
-    <main>
-      <!-- <header>
-        <div class="Languages">
-          <p>Languages</p>
-          <ul>
-            <li><button class="btn active">HTML & CSS</button></li>
-            <li><button class="btn active">JavaScript</button></li>
-          </ul>
+    <button class="reset-btn"><ion-icon name="refresh"></ion-icon></button>
+    <button class="filter-menu-btn">
+      <ion-icon class="icon" name="menu-outline"></ion-icon>
+    </button>
+    <div class="filter-menu">
+      <div>
+        <p>Languages</p>
+        <div>
+          <input type="checkbox" id=".html" />
+          <label for=".html">HTML & CSS</label>
         </div>
-        <div class="difficulties">
-          <p>Difficulties</p>
-          <ul>
-            <li><button class="btn active">NEWBIE</button></li>
-            <li><button class="btn active">JUNIOR</button></li>
-            <li><button class="btn active">intermediate</button></li>
-          </ul>
+        <div>
+          <input type="checkbox" id=".js" />
+          <label for=".js">JavaScript</label>
         </div>
-      </header> -->
+      </div>
 
+      <div>
+        <p>Difficulty</p>
+        <div>
+          <input type="checkbox" id=".newbie" />
+          <label for=".newbie">Newbie</label>
+        </div>
+        <div>
+          <input type="checkbox" id=".junior" />
+          <label for=".junior">Junior</label>
+        </div>
+        <div>
+          <input type="checkbox" id=".intermediate" />
+          <label for=".intermediate">Intermediate</label>
+        </div>
+      </div>
+    </div>
+    <main>
+      <h2 class="chosen-name">Huddle landing page with curved sections</h2>
       <div class="grid-container">
         <div class="grid-item">
           <a href="browser-extensions-manager-ui-main/index.html">
@@ -313,7 +329,18 @@
           </a>
         </div>
       </div>
+      <h2 class="chosen-info"></h2>
     </main>
+    <div class="input-blocker"></div>
+
     <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
