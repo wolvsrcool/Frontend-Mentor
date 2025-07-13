@@ -9,5 +9,5 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
 
 ### Links
 
-[- Solution URL]() <br />
-[- Live Site URL]()
+[- Solution URL](https://wolvsrcool.github.io/Frontend-Mentor/product-list-with-cart-main/index.html) <br />
+[- Live Site URL](https://github.com/wolvsrcool/Frontend-Mentor/tree/master/product-list-with-cart-main)
