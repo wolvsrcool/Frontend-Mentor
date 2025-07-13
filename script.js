@@ -3,12 +3,12 @@
 // TODO
 // Fix inputs being checked after pressing back in browser
 
+const gridContEl = document.querySelector(".grid-container");
 const gridItemEls = document.querySelectorAll(".grid-item");
 const openFilterMenuBtnEl = document.querySelector(".filter-menu-btn");
 const rstFunnyBtnEl = document.querySelector(".reset-btn");
 const filterMenuEl = document.querySelector(".filter-menu");
 const inputsEl = document.querySelectorAll("input[type='checkbox']");
-const allAnchorEls = document.querySelectorAll("a");
 const chosenNameEl = document.querySelector(".chosen-name");
 const chosenInfoEl = document.querySelector(".chosen-info");
 const inputBlockerEl = document.querySelector(".input-blocker");
@@ -121,19 +121,15 @@ function displayGridEl(elsToDisplay) {
   }
 }
 
-function makeItemFunny(item) {
-  const scale = 1 + Math.random() / 10;
-  const skew = Math.random() * 4 - 2;
+function makeItemFunny(funControl = 0) {
+  const scale = 1 + Math.random() / 10 - 0.1 * funControl;
+  const skew = Math.random() * (4 - 2);
   const translateY = Math.random() * 20 - 10;
   const transformStr = `scale(${scale}) skew(${skew}deg) translateY(${translateY}px)`;
-  if (item) {
-    item.style.transform = transformStr;
-  }
   return transformStr;
 }
 
-function funnyAnimate(item, duration) {
-  const funnyState = makeItemFunny();
+function funnyAnimate(item, duration, funnyState) {
   const animation = item.animate(
     [
       {
@@ -166,7 +162,7 @@ for (let i = 0; i < gridItemEls.length; i++) {
     if (!gridItemEls[i].classList.contains("selected")) {
       if (isAnimating[i] === false) {
         const funnyState = makeItemFunny();
-        animations[i] = funnyAnimate(gridItemEls[i], 200);
+        animations[i] = funnyAnimate(gridItemEls[i], 200, funnyState);
         isAnimating[i] = true;
         animations[i].finished.then(() => (isAnimating[i] = false));
       }
@@ -175,7 +171,7 @@ for (let i = 0; i < gridItemEls.length; i++) {
   gridItemEls[i].addEventListener("mouseleave", function () {
     if (isAnimating[i] == false) {
       const funnyState = makeItemFunny();
-      animations[i] = funnyAnimate(gridItemEls[i], 200);
+      animations[i] = funnyAnimate(gridItemEls[i], 200, funnyState);
       isAnimating[i] = true;
       animations[i].finished.then(() => (isAnimating[i] = false));
     }
@@ -213,12 +209,11 @@ for (let i = 0; i < gridItemEls.length; i++) {
   shrinkUp(gridItemEls[i], 400);
 }
 
-allAnchorEls.forEach((a) => {
-  a.addEventListener("click", function (e) {
-    e.preventDefault();
-    const gridItem = a.parentElement;
-    animateSelection(gridItem);
-  });
+gridContEl.addEventListener(`click`, function (e) {
+  e.preventDefault();
+  const gridItem = e.target.closest(`.grid-item`);
+  console.log(gridItem);
+  animateSelection(gridItem);
 });
 
 rstFunnyBtnEl.addEventListener("click", function () {

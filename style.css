@@ -305,7 +305,8 @@ a:visited {
 }
 
 .img-cont img {
-  width: 100%;
+  width: 25.4rem;
+  height: 18.6rem;
   transition: 0.3s;
 }
 

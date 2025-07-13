@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Product list with cart</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="menu-cont">
+        <h2>Desserts</h2>
+        <div class="grid-cont"></div>
+      </section>
+      <aside class="cart-cont">
+        <p class="cart-ammount">
+          Your Cart (<span class="cart-amount">0</span>)
+        </p>
+        <div class="empty-cart">
+          <img src="assets/images/illustration-empty-cart.svg" alt="" />
+          <p>Your added items will appear here</p>
+        </div>
+        <div class="cart-content hidden">
+          <div class="orders"></div>
+
+          <div class="order-total">
+            <p>Order Total</p>
+            <p><span>$5.50</span></p>
+          </div>
+
+          <div class="delivery-info">
+            <img src="assets/images/icon-carbon-neutral.svg" alt="" />
+            <p>This is <strong>carbon-neutral</strong> delivery</p>
+          </div>
+          <button class="btn-confirm">Confirm Order</button>
+        </div>
+      </aside>
+
+      <div class="modal-wrapper hidden">
+        <div class="final-order-modal">
+          <img src="assets/images/icon-order-confirmed.svg" alt="" />
+          <h2>Order Confirmed</h2>
+          <p class="sub-header">We hope you enjoy your food!</p>
+          <div class="final-orders">
+            <div class="final-orders-cont"></div>
+            <div class="final-order-total">
+              <p>Order Total</p>
+              <p><span>$5.50</span></p>
+            </div>
+          </div>
+
+          <button class="btn-confirm btn-modal">Start New Order</button>
+        </div>
+      </div>
+    </main>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">wolvsrcool</a>.
+    </div>
+  </body>
+</html>
