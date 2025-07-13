@@ -156,6 +156,11 @@ div div label {
   margin: 4.8rem auto;
 }
 
+.grid-item.hidden {
+  transform: translateY(6rem);
+  opacity: 0.3;
+}
+
 .grid-item {
   background-color: white;
   border-radius: 12px;

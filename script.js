@@ -153,30 +153,28 @@ function funnyAnimate(item, duration, funnyState) {
 let animations = new Array(gridItemEls.length);
 let isAnimating = [];
 
-for (let i = 0; i < gridItemEls.length; i++) {
+gridItemEls.forEach((el, i) => {
   isAnimating.push(false);
-}
 
-for (let i = 0; i < gridItemEls.length; i++) {
-  gridItemEls[i].addEventListener("mouseenter", function () {
+  el.addEventListener("mouseenter", function () {
     if (!gridItemEls[i].classList.contains("selected")) {
       if (isAnimating[i] === false) {
         const funnyState = makeItemFunny();
-        animations[i] = funnyAnimate(gridItemEls[i], 200, funnyState);
+        animations[i] = funnyAnimate(el, 200, funnyState);
         isAnimating[i] = true;
         animations[i].finished.then(() => (isAnimating[i] = false));
       }
     }
   });
-  gridItemEls[i].addEventListener("mouseleave", function () {
+  el.addEventListener("mouseleave", function () {
     if (isAnimating[i] == false) {
       const funnyState = makeItemFunny();
-      animations[i] = funnyAnimate(gridItemEls[i], 200, funnyState);
+      animations[i] = funnyAnimate(el, 200, funnyState);
       isAnimating[i] = true;
       animations[i].finished.then(() => (isAnimating[i] = false));
     }
   });
-}
+});
 
 function shrinkDown(elem, duration) {
   elem.animate(
@@ -352,3 +350,23 @@ function animateSelection(selectedItem) {
     window.location.href = selectedItem.querySelector("a").href;
   }, 1000);
 }
+
+function showEl(entires) {
+  entires.forEach((e) => {
+    if (e.isIntersecting) {
+      e.target.classList.remove(`hidden`);
+      observerLoad.unobserve(e.target);
+    }
+    console.log(e);
+  });
+}
+
+const observerLoad = new IntersectionObserver(showEl, {
+  root: null,
+  threshold: 0.1,
+});
+
+gridItemEls.forEach((el) => {
+  el.classList.add(`hidden`);
+  observerLoad.observe(el);
+});

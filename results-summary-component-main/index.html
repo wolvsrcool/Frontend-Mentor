@@ -17,14 +17,10 @@
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
-        /* position: fixed; */
         bottom: 0;
         font-size: 11px;
         text-align: center;
         color: hsl(0, 0%, 0%);
-        width: 100vw;
-        z-index: -1;
-        margin-top: auto;
       }
       .attribution a {
         color: hsl(228, 45%, 44%);
@@ -250,13 +246,15 @@
         opacity: 1;
       }
 
-      @media (max-width: 40em) {
+      @media (max-width: 36em) {
         html {
-          font-size: 43.375%;
+          font-size: 50%;
         }
+
         section {
           padding: 0;
-          margin: 0 auto;
+          margin: 0;
+          max-width: 100vw;
         }
 
         .grid-container {

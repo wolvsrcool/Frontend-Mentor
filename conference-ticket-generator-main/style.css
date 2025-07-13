@@ -1,10 +1,8 @@
 .attribution {
-  margin-top: auto;
   text-align: center;
-  z-index: -1;
   font-size: 11px;
-  text-align: center;
   color: white;
+  margin-top: auto;
 }
 .attribution a {
   color: white;
