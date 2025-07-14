@@ -23,12 +23,6 @@ window.addEventListener("pageshow", function (e) {
 
 let currentlyDisplayed;
 
-gridItemEls.forEach((el, i) => {
-  setTimeout(() => {
-    shrinkUp(el, 400);
-  }, i * 50);
-});
-
 openFilterMenuBtnEl.addEventListener("click", function () {
   if (filterMenuEl.style.right != "0px") {
     filterMenuEl.style.right = "0px";
@@ -104,21 +98,28 @@ function filterElements() {
 }
 
 function displayGridEl(elsToDisplay) {
-  for (let i = 0; i < gridItemEls.length; i++) {
+  const arrLength = gridItemEls.length;
+  for (let i = 0; i < arrLength; i++) {
     if (
       gridItemEls[i].style.display !== "none" &&
       !Array.from(elsToDisplay).includes(gridItemEls[i])
     ) {
-      shrinkDown(gridItemEls[i], 400);
-      setTimeout(function () {
-        gridItemEls[i].style.display = "none";
-      }, 390);
+      // setTimeout(function () {
+      //   gridItemEls[i].classList.add(`hidden`);
+      // }, (arrLength - i - 1) * 25);
+      // setTimeout(function () {
+      //   gridItemEls[i].style.display = "none";
+      // }, arrLength * 25 + 300);
+      gridItemEls[i].style.display = "none";
+      // gridItemEls[i].classList.add(`hidden`);
     } else if (
       gridItemEls[i].style.display === "none" &&
       Array.from(elsToDisplay).includes(gridItemEls[i])
     ) {
       gridItemEls[i].style.display = "block";
-      shrinkUp(gridItemEls[i], 400);
+      // setTimeout(function () {
+      //   gridItemEls[i].classList.remove(`hidden`);
+      // }, i * 50);
     }
   }
 }
@@ -155,33 +156,6 @@ function funnyAnimate(item, duration, funnyState) {
   return animation;
 }
 
-function shrinkDown(elem, duration) {
-  elem.animate(
-    [
-      { opacity: "1", transform: "scale(1)" },
-      { opacity: "0", transform: "scale(0)" },
-    ],
-    {
-      duration: duration,
-      iterations: 1,
-    }
-  );
-}
-
-function shrinkUp(elem, duration) {
-  const animation = elem.animate(
-    [
-      { opacity: "0", transform: "scale(0)" },
-      { opacity: "1", transform: "scale(1)" },
-    ],
-    {
-      duration: duration,
-      iterations: 1,
-    }
-  );
-  return animation;
-}
-
 function showEl(entries) {
   entries.forEach((e, i) => {
     if (e.isIntersecting) {
@@ -195,7 +169,7 @@ function showEl(entries) {
 
 const observerLoad = new IntersectionObserver(showEl, {
   root: null,
-  threshold: 0.15,
+  threshold: 0,
 });
 
 gridItemEls.forEach((el) => {
@@ -236,10 +210,10 @@ gridContEl.addEventListener(`click`, function (e) {
 function animateSelection(selectedItem) {
   for (let i = 0; i < gridItemEls.length; i++) {
     if (gridItemEls[i] !== selectedItem) {
-      shrinkDown(gridItemEls[i], 300);
+      gridItemEls[i].classList.add(`hidden`);
       setTimeout(function () {
         gridItemEls[i].style.opacity = "0";
-      }, 290);
+      }, 300);
     }
   }
   openFilterMenuBtnEl.style.display = "none";
@@ -258,7 +232,7 @@ function animateSelection(selectedItem) {
     selectedItem.style.position = "absolute";
     selectedItem.style.left = `${pos.left}px`;
     selectedItem.style.top = `${pos.top}px`;
-    selectedItem.animate(
+    const anim = selectedItem.animate(
       [
         {
           top: `${pos.top}px`,
@@ -287,6 +261,13 @@ function animateSelection(selectedItem) {
       ],
       { duration: 1100, iterations: 1 }
     );
+    anim.finished.then(() => {
+      selectedItem.style.position = `absolute`;
+      selectedItem.style.left = `50%`;
+      selectedItem.style.top = `50%`;
+      selectedItem.style.transform = `translate(-50%, -50%) scale(1.75)`;
+      selectedItem.style.opacity = `1`;
+    });
   }, 290);
 
   chosenNameEl.textContent = selectedItem.querySelector(".name").textContent;
