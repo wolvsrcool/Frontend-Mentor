@@ -351,22 +351,22 @@ function animateSelection(selectedItem) {
   }, 1000);
 }
 
-function showEl(entires) {
-  entires.forEach((e) => {
-    if (e.isIntersecting) {
-      e.target.classList.remove(`hidden`);
-      observerLoad.unobserve(e.target);
-    }
-    console.log(e);
-  });
-}
+// function showEl(entires) {
+//   entires.forEach((e) => {
+//     if (e.isIntersecting) {
+//       e.target.classList.remove(`hidden`);
+//       observerLoad.unobserve(e.target);
+//     }
+//   });
+// }
 
-const observerLoad = new IntersectionObserver(showEl, {
-  root: null,
-  threshold: 0.1,
-});
+// const observerLoad = new IntersectionObserver(showEl, {
+//   root: null,
+//   threshold: 0.1,
+// });
 
-gridItemEls.forEach((el) => {
-  el.classList.add(`hidden`);
-  observerLoad.observe(el);
-});
+// gridItemEls.forEach((el) => {
+//   console.log(el);
+//   el.classList.add(`hidden`);
+//   observerLoad.observe(el);
+// });
