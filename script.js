@@ -1,8 +1,5 @@
 "use strict";
 
-// TODO
-// Fix inputs being checked after pressing back in browser
-
 const gridContEl = document.querySelector(".grid-container");
 const gridItemEls = document.querySelectorAll(".grid-item");
 const openFilterMenuBtnEl = document.querySelector(".filter-menu-btn");
@@ -150,32 +147,6 @@ function funnyAnimate(item, duration, funnyState) {
   return animation;
 }
 
-let animations = new Array(gridItemEls.length);
-let isAnimating = [];
-
-gridItemEls.forEach((el, i) => {
-  isAnimating.push(false);
-
-  el.addEventListener("mouseenter", function () {
-    if (!gridItemEls[i].classList.contains("selected")) {
-      if (isAnimating[i] === false) {
-        const funnyState = makeItemFunny();
-        animations[i] = funnyAnimate(el, 200, funnyState);
-        isAnimating[i] = true;
-        animations[i].finished.then(() => (isAnimating[i] = false));
-      }
-    }
-  });
-  el.addEventListener("mouseleave", function () {
-    if (isAnimating[i] == false) {
-      const funnyState = makeItemFunny();
-      animations[i] = funnyAnimate(el, 200, funnyState);
-      isAnimating[i] = true;
-      animations[i].finished.then(() => (isAnimating[i] = false));
-    }
-  });
-});
-
 function shrinkDown(elem, duration) {
   elem.animate(
     [
@@ -206,6 +177,32 @@ for (let i = 0; i < gridItemEls.length; i++) {
   gridItemEls[i].style.display = "block";
   shrinkUp(gridItemEls[i], 400);
 }
+
+let animations = new Array(gridItemEls.length);
+let isAnimating = [];
+
+// gridItemEls.forEach((el, i) => {
+//   isAnimating.push(false);
+
+//   el.addEventListener("mouseenter", function () {
+//     if (!gridItemEls[i].classList.contains("selected")) {
+//       if (isAnimating[i] === false) {
+//         const funnyState = makeItemFunny();
+//         animations[i] = funnyAnimate(el, 200, funnyState);
+//         isAnimating[i] = true;
+//         animations[i].finished.then(() => (isAnimating[i] = false));
+//       }
+//     }
+//   });
+//   el.addEventListener("mouseleave", function () {
+//     if (isAnimating[i] == false) {
+//       const funnyState = makeItemFunny();
+//       animations[i] = funnyAnimate(el, 200, funnyState);
+//       isAnimating[i] = true;
+//       animations[i].finished.then(() => (isAnimating[i] = false));
+//     }
+//   });
+// });
 
 gridContEl.addEventListener(`click`, function (e) {
   e.preventDefault();
