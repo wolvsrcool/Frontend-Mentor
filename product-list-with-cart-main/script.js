@@ -133,6 +133,16 @@ function removeFromCart(id) {
   cartOrdersEl.querySelector(`.order[data-id="${id}"`).remove();
 }
 
+function checkModalSize() {
+  const height = window.innerHeight;
+
+  if (height < modalEl.offsetHeight) {
+    modalWrapperEl.classList.add(`modal-fix`);
+  } else {
+    modalWrapperEl.classList.remove(`modal-fix`);
+  }
+}
+
 gridContEl.addEventListener(`click`, function (e) {
   const targetEl = e.target.closest(`.menu-item`);
   const tragetId = Number(targetEl?.dataset.id);
@@ -197,6 +207,7 @@ confirmOrderEl.addEventListener(`click`, function (e) {
     0
   );
   modalTotalEl.textContent = `$${total.toFixed(2)}`;
+  checkModalSize();
 });
 
 newOrderBtnEl.addEventListener(`click`, function () {
@@ -213,7 +224,6 @@ newOrderBtnEl.addEventListener(`click`, function () {
 
 window.addEventListener("resize", function (e) {
   const width = window.innerWidth;
-  const height = window.innerHeight;
 
   if (width > 800) {
     gridEls.forEach((el, id) => {
@@ -228,10 +238,5 @@ window.addEventListener("resize", function (e) {
       el.querySelector(`.main-img`).src = menuItems[id].image.mobile;
     });
   }
-
-  if (height < modalEl.offsetHeight) {
-    modalWrapperEl.classList.add(`modal-fix`);
-  } else {
-    modalWrapperEl.classList.remove(`modal-fix`);
-  }
+  checkModalSize();
 });
