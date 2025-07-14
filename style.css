@@ -32,7 +32,6 @@ body {
   display: none;
 }
 
-.reset-btn,
 .filter-menu-btn {
   position: fixed;
   border: none;
@@ -50,22 +49,12 @@ body {
   box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.05);
 }
 
-.reset-btn {
-  left: 0;
-  border-radius: 50%;
-}
-
 .filter-menu-btn {
   right: 0;
 }
 
-.filter-menu-btn:hover,
-.reset-btn:hover {
+.filter-menu-btn:hover {
   opacity: 0.9;
-}
-
-.reset-btn:hover {
-  transform: rotate(360deg) scale(1.12);
 }
 
 .active {
@@ -157,8 +146,8 @@ div div label {
 }
 
 .grid-item.hidden {
-  transform: translateY(6rem);
-  opacity: 0.3;
+  transform: scale(0.7);
+  opacity: 0;
 }
 
 .grid-item {

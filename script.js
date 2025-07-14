@@ -3,7 +3,6 @@
 const gridContEl = document.querySelector(".grid-container");
 const gridItemEls = document.querySelectorAll(".grid-item");
 const openFilterMenuBtnEl = document.querySelector(".filter-menu-btn");
-const rstFunnyBtnEl = document.querySelector(".reset-btn");
 const filterMenuEl = document.querySelector(".filter-menu");
 const inputsEl = document.querySelectorAll("input[type='checkbox']");
 const chosenNameEl = document.querySelector(".chosen-name");
@@ -23,6 +22,12 @@ window.addEventListener("pageshow", function (e) {
 });
 
 let currentlyDisplayed;
+
+gridItemEls.forEach((el, i) => {
+  setTimeout(() => {
+    shrinkUp(el, 400);
+  }, i * 50);
+});
 
 openFilterMenuBtnEl.addEventListener("click", function () {
   if (filterMenuEl.style.right != "0px") {
@@ -118,11 +123,16 @@ function displayGridEl(elsToDisplay) {
   }
 }
 
-function makeItemFunny(funControl = 0) {
-  const scale = 1 + Math.random() / 10 - 0.1 * funControl;
-  const skew = Math.random() * (4 - 2);
-  const translateY = Math.random() * 20 - 10;
-  const transformStr = `scale(${scale}) skew(${skew}deg) translateY(${translateY}px)`;
+function randomFloat(min, max) {
+  return parseFloat((Math.random() * (max - min) + min).toFixed(3));
+}
+
+function makeItemFunny(funControl = 1) {
+  const scale = randomFloat(1.0, 1.05);
+  const skew = randomFloat(-1, 1);
+  const translateY = randomFloat(-5, -15);
+  const translateX = randomFloat(-5, 5);
+  const transformStr = `scale(${scale}) skew(${skew}deg) translateY(${translateY}px) translateX(${translateX}px)`;
   return transformStr;
 }
 
@@ -141,9 +151,7 @@ function funnyAnimate(item, duration, funnyState) {
       iterations: 1,
     }
   );
-  setTimeout(function () {
-    item.style.transform = funnyState;
-  }, duration - 5);
+  animation.finished.then(() => (item.style.transform = funnyState));
   return animation;
 }
 
@@ -161,7 +169,7 @@ function shrinkDown(elem, duration) {
 }
 
 function shrinkUp(elem, duration) {
-  elem.animate(
+  const animation = elem.animate(
     [
       { opacity: "0", transform: "scale(0)" },
       { opacity: "1", transform: "scale(1)" },
@@ -171,96 +179,58 @@ function shrinkUp(elem, duration) {
       iterations: 1,
     }
   );
+  return animation;
 }
 
-for (let i = 0; i < gridItemEls.length; i++) {
-  gridItemEls[i].style.display = "block";
-  shrinkUp(gridItemEls[i], 400);
+function showEl(entries) {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => {
+        e.target.classList.remove(`hidden`);
+        observerLoad.unobserve(e.target);
+      }, i * 50);
+    }
+  });
 }
 
-// function showEl(entries) {
-//   entries.forEach((e, i) => {
-//     console.log(e, i);
-//     if (e.isIntersecting) {
-//       // e.target.classList.remove(`hidden`);
-//       setTimeout(() => e.target.classList.remove(`hidden`), i * 50);
-//       // observerLoad.unobserve(e.target);
-//     }
-//   });
-// }
+const observerLoad = new IntersectionObserver(showEl, {
+  root: null,
+  threshold: 0.15,
+});
 
-// const observerLoad = new IntersectionObserver(showEl, {
-//   root: null,
-//   threshold: 0.1,
-// });
-
-// observerLoad.observer(gridContEl);
-// gridItemEls.forEach((el) => {
-//   el.classList.add(`hidden`);
-//   observerLoad.observe(el);
-// });
+gridItemEls.forEach((el) => {
+  observerLoad.observe(el);
+});
 
 let animations = new Array(gridItemEls.length);
-let isAnimating = [];
+
+function animateEnter(i, el) {
+  const funnyState = makeItemFunny();
+  animations[i] = funnyAnimate(el, 300, funnyState);
+}
+
+function animateLeave(i, el) {
+  const state = `scale(1) skew(0deg) translateY(0px) translateX(0px)`;
+  animations[i] = funnyAnimate(el, 300, state);
+}
 
 gridItemEls.forEach((el, i) => {
-  isAnimating.push(false);
-  el.addEventListener("mouseenter", function () {
-    if (!gridItemEls[i].classList.contains("selected")) {
-      if (isAnimating[i] === false) {
-        const funnyState = makeItemFunny();
-        animations[i] = funnyAnimate(el, 200, funnyState);
-        isAnimating[i] = true;
-        animations[i].finished.then(() => (isAnimating[i] = false));
-      }
+  el.addEventListener("mouseover", function () {
+    if (!el.classList.contains("selected")) {
+      if (animations[i]) animations[i].finished.then(() => animateEnter(i, el));
+      else animateEnter(i, el);
     }
   });
   el.addEventListener("mouseleave", function () {
-    if (isAnimating[i] == false) {
-      const funnyState = makeItemFunny();
-      animations[i] = funnyAnimate(el, 200, funnyState);
-      isAnimating[i] = true;
-      animations[i].finished.then(() => (isAnimating[i] = false));
-    }
+    if (animations[i]) animations[i].finished.then(() => animateLeave(i, el));
+    else animateLeave(i, el);
   });
 });
 
 gridContEl.addEventListener(`click`, function (e) {
   e.preventDefault();
   const gridItem = e.target.closest(`.grid-item`);
-  console.log(gridItem);
-  animateSelection(gridItem);
-});
-
-rstFunnyBtnEl.addEventListener("click", function () {
-  for (let i = 0; i < gridItemEls.length; i++) {
-    const curTrans = gridItemEls[i].style.transform;
-    gridItemEls[i].style.transform = "";
-    gridItemEls[i].animate(
-      [
-        {
-          transform: `${curTrans}`,
-          opacity: "0.6",
-        },
-        {
-          transform: "",
-          opacity: "0.9",
-        },
-        {
-          transform: "scale(0.9)",
-          opacity: "0.95",
-        },
-        {
-          transform: "",
-          opacity: "1",
-        },
-      ],
-      {
-        duration: 600,
-        iterations: 1,
-      }
-    );
-  }
+  gridItem && animateSelection(gridItem);
 });
 
 function animateSelection(selectedItem) {
@@ -274,7 +244,6 @@ function animateSelection(selectedItem) {
   }
   openFilterMenuBtnEl.style.display = "none";
   filterMenuEl.style.display = "none";
-  rstFunnyBtnEl.style.display = "none";
   inputBlockerEl.style.display = "block";
 
   window.scrollTo({ top: 0, behavior: "instant" });
