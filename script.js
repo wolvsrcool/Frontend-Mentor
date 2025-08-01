@@ -9,6 +9,8 @@ const chosenNameEl = document.querySelector(".chosen-name");
 const chosenInfoEl = document.querySelector(".chosen-info");
 const inputBlockerEl = document.querySelector(".input-blocker");
 
+const reactTags = document.querySelectorAll(`.react`);
+
 const allTechArr = [".html", ".js"];
 const allLevelsArr = [".newbie", ".junior", ".intermediate"];
 
@@ -218,6 +220,9 @@ function animateSelection(selectedItem) {
   }
   openFilterMenuBtnEl.style.display = "none";
   filterMenuEl.style.display = "none";
+
+  reactTags.forEach((tag) => (tag.style.display = "none"));
+
   inputBlockerEl.style.display = "block";
 
   window.scrollTo({ top: 0, behavior: "instant" });
