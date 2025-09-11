@@ -19,28 +19,14 @@ export default function CommentBody({
   const [whenStr, setWhenStr] = useState("");
   const [mouseOver, setMouseOver] = useState(false);
 
-  const [text, setText] = useState(
-    `${
-      comment.replyingTo
-        ? `@${comment.replyingTo} ${comment.content}`
-        : comment.content
-    }`
-  );
+  const [text, setText] = useState(comment.content);
   const [showError, setShowError] = useState(false);
 
   const isEditing = editingId === comment.id;
 
-  let strFix = comment.replyingTo?.length + 2 || 0;
-  let fixedText = text.slice(strFix);
-
   function handleEdit(e) {
-    if (comment.replyingTo) {
-      if (e.target.value.startsWith(`@${comment.replyingTo} `))
-        setText(e.target.value);
-    } else {
-      setText(e.target.value);
-    }
-    if (e.target.value.length > strFix) {
+    setText(e.target.value);
+    if (e.target.value.trim().length >= 1) {
       setShowError(false);
     } else {
       setShowError(true);
@@ -61,23 +47,23 @@ export default function CommentBody({
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (fixedText.trim()) {
-      onEditComment(e, fixedText);
-    } else {
-      setShowError(true);
+
+    if (text.trim()) {
+      onEditComment(e, text);
     }
   }
 
-  useEffect(() => {
-    if (isEditing === false)
-      setText(
-        `${
-          comment.replyingTo
-            ? `@${comment.replyingTo} ${comment.content}`
-            : comment.content
-        }`
-      );
+  useEffect(
+    function () {
+      const editFieldEl = document.getElementById(`comment-edit`);
+      editFieldEl?.focus();
+      const textLength = editFieldEl?.value.length;
+      editFieldEl?.setSelectionRange(textLength, textLength);
+    },
+    [isEditing]
+  );
 
+  useEffect(() => {
     if (mouseOver) return;
 
     const daysSince = Math.round(
@@ -198,27 +184,33 @@ export default function CommentBody({
 
       <div className="comment-content">
         {isEditing ? (
-          <form className="editing" onSubmit={handleSubmit}>
-            <div>
-              <textarea
-                className="comment-input"
-                value={text}
-                onChange={handleEdit}
-                required
-                id="comment-edit"
-                onKeyDown={handleKeyDown}
-                onBlur={handleBlur}
-              />
-            </div>
-            <div className="editing-err-btn">
-              <div className="form-error">
-                {showError && <p>Comment too short!</p>}
+          <>
+            <p>
+              Replying to{" "}
+              <span className="replying-to">@{comment.replyingTo}</span>
+            </p>
+            <form className="editing" onSubmit={handleSubmit}>
+              <div>
+                <textarea
+                  className="comment-input"
+                  value={text}
+                  onChange={handleEdit}
+                  required
+                  id="comment-edit"
+                  onKeyDown={handleKeyDown}
+                  onBlur={handleBlur}
+                />
               </div>
-              <button className="btn" type="submit">
-                UPDATE
-              </button>
-            </div>
-          </form>
+              <div className="editing-err-btn">
+                <div className="form-error">
+                  {showError && <p>Comment too short!</p>}
+                </div>
+                <button className="btn" type="submit">
+                  UPDATE
+                </button>
+              </div>
+            </form>
+          </>
         ) : (
           <p>
             {comment.replyingTo ? (

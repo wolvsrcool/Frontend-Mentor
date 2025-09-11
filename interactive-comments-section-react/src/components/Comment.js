@@ -60,7 +60,6 @@ export default function Comment({
                     currentUser={currentUser}
                     onAddReply={onAddReply}
                     replyingTo={reply.user.username}
-                    autofocus={true}
                   >
                     REPLY
                   </AddCommentForm>

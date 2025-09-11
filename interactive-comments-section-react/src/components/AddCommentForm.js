@@ -5,13 +5,9 @@ export default function AddCommentForm({
   replyingTo,
   onAddReply,
   children,
-  autofocus,
 }) {
-  const [text, setText] = useState(`${replyingTo ? `@${replyingTo} ` : ""}`);
+  const [text, setText] = useState("");
   const [showError, setShowError] = useState(false);
-
-  let strFix = replyingTo?.length + 2 || 0;
-  let fixedText = text.slice(strFix);
 
   function handleKeyDown(e) {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -20,14 +16,8 @@ export default function AddCommentForm({
   }
 
   function handleReply(e) {
-    if (replyingTo) {
-      if (e.target.value.startsWith(`@${replyingTo} `)) {
-        setText(e.target.value);
-      }
-    } else {
-      setText(e.target.value);
-    }
-    if (e.target.value.length > strFix) {
+    setText(e.target.value);
+    if (e.target.value.length >= 1) {
       setShowError(false);
     } else {
       setShowError(true);
@@ -37,12 +27,8 @@ export default function AddCommentForm({
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (fixedText.trim()) {
-      onAddReply(e, fixedText);
-      setText("");
-    } else {
-      setShowError(true);
-    }
+    onAddReply(e, text);
+    setText("");
   }
 
   function handleBlur() {
@@ -53,6 +39,12 @@ export default function AddCommentForm({
 
   return (
     <form className="add-comment-form" onSubmit={handleSubmit}>
+      {replyingTo ? (
+        <p>
+          Replying to <span className="replying-to">@{replyingTo}</span>
+        </p>
+      ) : null}
+
       <div className="main-form">
         {currentUser && (
           <img
@@ -63,7 +55,7 @@ export default function AddCommentForm({
 
         <div className="form-input-wrapper">
           <textarea
-            autoFocus={autofocus}
+            autoFocus="true"
             className="comment-input"
             placeholder="Add a comment..."
             required

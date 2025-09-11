@@ -194,6 +194,9 @@ body {
 
 .comment-content {
   color: hsl(211, 10%, 45%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
   line-height: 1.4;
   grid-row: 2;
   grid-column: 2/ -1;
