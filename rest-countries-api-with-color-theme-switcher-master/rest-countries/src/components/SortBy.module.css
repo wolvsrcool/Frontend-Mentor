@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.6rem;
+  font-size: 1.4rem;
+  white-space: nowrap;
+}
+
+.btnCont {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.btn {
+  display: flex;
+  position: relative;
+}
+
+.btn::after {
+  position: absolute;
+  content: "";
+  width: 0%;
+  left: 50%;
+  height: 1px;
+  opacity: 0;
+  background-color: hsl(200, 15%, 8%);
+  border-radius: 4px;
+  bottom: 0px;
+  transition: width 0.3s, left 0.3s, opacity 0.3s;
+}
+
+.icon {
+  display: flex;
+  transition: transform 0.3s;
+}
+
+.active::after {
+  width: 100%;
+  left: 0;
+  opacity: 1;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+:global(.dark) .btn::after {
+  background-color: white;
+}

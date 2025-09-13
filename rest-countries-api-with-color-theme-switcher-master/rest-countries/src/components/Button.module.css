@@ -1,0 +1,30 @@
+.btn {
+  cursor: pointer;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  color: hsl(200, 15%, 8%);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  gap: 1.2rem;
+  text-decoration: none;
+  font-weight: 300;
+  font-family: inherit;
+  box-shadow: 0 0px 2px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: rgb(247, 247, 247);
+}
+
+:global(.dark) .btn {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 100%, 100%);
+}
+
+:global(.dark) .btn:hover {
+  background-color: rgb(35, 49, 61);
+}

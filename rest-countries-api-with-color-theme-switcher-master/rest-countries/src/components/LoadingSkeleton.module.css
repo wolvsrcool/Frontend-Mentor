@@ -1,0 +1,44 @@
+.wrap {
+  background-color: transparent;
+  overflow: hidden;
+  width: 100%;
+  min-width: 0;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.075);
+}
+
+.loader {
+  height: 100%;
+  width: 100%;
+  transform: scaleX(1.5);
+  background-color: #e9ecef;
+  background-image: linear-gradient(
+    90deg,
+    #dee2e600 0rem,
+    rgba(255, 255, 255, 0.5) 3.2rem,
+    #dee2e600 6.4rem
+  );
+  background-size: 200% 100%;
+  background-position: 200% 0%;
+  animation: shine-line 1s infinite linear;
+}
+
+@keyframes shine-line {
+  0% {
+    background-position: 200% 0%;
+  }
+  50%,
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+:global(.dark) .loader {
+  background-color: hsl(209, 23%, 22%);
+  background-image: linear-gradient(
+    90deg,
+    #dee2e600 0rem,
+    rgba(255, 255, 255, 0.05) 3.2rem,
+    #dee2e600 6.4rem
+  );
+}

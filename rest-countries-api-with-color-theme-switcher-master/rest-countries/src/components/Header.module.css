@@ -1,0 +1,64 @@
+.header {
+  padding: 2.4rem 6.4rem;
+
+  font-size: 1.6rem;
+  background-color: hsl(0, 100%, 100%);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  color: inherit;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 192rem;
+  margin: auto;
+}
+
+.header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  gap: 0.8rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: transparent;
+  color: inherit;
+}
+
+.icon {
+  display: flex;
+}
+
+:global(.dark) .header {
+  background-color: hsl(209, 23%, 22%);
+}
+
+@media (max-width: 75em) {
+  .header {
+    padding: 2.4rem 4.8rem;
+  }
+}
+
+@media (max-width: 31em) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 28em) {
+  .header {
+    padding: 2.4rem;
+  }
+}
