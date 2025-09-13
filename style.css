@@ -365,6 +365,10 @@ a:visited {
   color: #ff8787;
 }
 
+.api {
+  color: #34d6c4;
+}
+
 .junior {
   color: #12b886;
 }
@@ -375,6 +379,10 @@ a:visited {
 
 .intermediate {
   color: #fab005;
+}
+
+.advanced {
+  color: #f97316;
 }
 
 @media (max-width: 89em) {

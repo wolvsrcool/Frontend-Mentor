@@ -152,9 +152,10 @@ function funnyAnimate(item, duration, funnyState) {
     {
       duration: duration,
       iterations: 1,
+      fill: "forwards",
     }
   );
-  animation.finished.then(() => (item.style.transform = funnyState));
+  animation.finished.finally(() => (item.style.transform = funnyState));
   return animation;
 }
 
@@ -178,28 +179,69 @@ gridItemEls.forEach((el) => {
   observerLoad.observe(el);
 });
 
-let animations = new Array(gridItemEls.length);
+let animationStates = Array.from(gridItemEls).map(() => ({
+  isAnimating: false,
+  currentAnimation: null,
+  pendingEnter: false,
+  pendingLeave: false,
+}));
 
 function animateEnter(i, el) {
   const funnyState = makeItemFunny();
-  animations[i] = funnyAnimate(el, 300, funnyState);
+  return funnyAnimate(el, 300, funnyState);
 }
 
 function animateLeave(i, el) {
   const state = `scale(1) skew(0deg) translateY(0px) translateX(0px)`;
-  animations[i] = funnyAnimate(el, 300, state);
+  return funnyAnimate(el, 300, state);
+}
+
+function cancelPendingAnimations(i) {
+  animationStates[i].pendingEnter = false;
+  animationStates[i].pendingLeave = false;
+}
+
+function playAnimation(i, el, animFn) {
+  animationStates[i].isAnimating = true;
+  animationStates[i].currentAnimation = animFn(i, el);
+  animationStates[i].currentAnimation.finished.then(() => {
+    animationStates[i].isAnimating = false;
+  });
 }
 
 gridItemEls.forEach((el, i) => {
   el.addEventListener("mouseover", function () {
     if (!el.classList.contains("selected")) {
-      if (animations[i]) animations[i].finished.then(() => animateEnter(i, el));
-      else animateEnter(i, el);
+      cancelPendingAnimations(i);
+      animationStates[i].pendingEnter = true;
+      if (animationStates[i].isAnimating) {
+        animationStates[i].currentAnimation.finished.then(() => {
+          animationStates[i].isAnimating = false;
+          if (animationStates[i].pendingEnter) {
+            playAnimation(i, el, animateEnter);
+          }
+        });
+      } else {
+        playAnimation(i, el, animateEnter);
+      }
     }
   });
+
   el.addEventListener("mouseleave", function () {
-    if (animations[i]) animations[i].finished.then(() => animateLeave(i, el));
-    else animateLeave(i, el);
+    if (!el.classList.contains("selected")) {
+      cancelPendingAnimations(i);
+      animationStates[i].pendingLeave = true;
+      if (animationStates[i].isAnimating) {
+        animationStates[i].currentAnimation.finished.then(() => {
+          animationStates[i].isAnimating = false;
+          if (animationStates[i].pendingLeave) {
+            playAnimation(i, el, animateLeave);
+          }
+        });
+      } else {
+        playAnimation(i, el, animateLeave);
+      }
+    }
   });
 });
 
