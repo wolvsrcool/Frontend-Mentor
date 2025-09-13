@@ -48,38 +48,33 @@ function App() {
     [countries]
   );
 
-  const router = createBrowserRouter(
-    [
-      {
-        path: "/",
-        element: <Layout filter={filter} resetAll={resetAll} />,
-        children: [
-          {
-            index: true,
-            element: (
-              <AllCountries
-                query={query}
-                setQuery={setQuery}
-                filter={filter}
-                sortingBy={sortingBy}
-                setSortingBy={setSortingBy}
-                setFilter={setFilter}
-                isLoading={isLoading}
-                countries={countries}
-              />
-            ),
-          },
-          {
-            path: ":countryName",
-            element: <SelectedCountry countries={countries}></SelectedCountry>,
-          },
-        ],
-      },
-    ],
+  const router = createBrowserRouter([
     {
-      basename: "/Frontend-Mentor/rest-countries",
-    }
-  );
+      path: "/",
+      element: <Layout filter={filter} resetAll={resetAll} />,
+      children: [
+        {
+          index: true,
+          element: (
+            <AllCountries
+              query={query}
+              setQuery={setQuery}
+              filter={filter}
+              sortingBy={sortingBy}
+              setSortingBy={setSortingBy}
+              setFilter={setFilter}
+              isLoading={isLoading}
+              countries={countries}
+            />
+          ),
+        },
+        {
+          path: ":countryName",
+          element: <SelectedCountry countries={countries}></SelectedCountry>,
+        },
+      ],
+    },
+  ]);
 
   return <RouterProvider router={router}></RouterProvider>;
 }
